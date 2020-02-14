@@ -19,7 +19,7 @@ $attribute = $_POST['attribute'];
 $keyword = $_POST['keyword'];
 $db = new mysqli($hostdb, $userdb, $passdb, $namedb);
 $result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON color.id_color = product.color_pro");
-
+$id_cus = 1
 // while ($product = mysqli_fetch_array($result)){
 //   print_r($product);
 // }
@@ -29,181 +29,10 @@ $result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON
 <!DOCTYPE html>
 <html lang="zxx">
 
-<head>
-
-
-  <a class="btn btn-warning" data-toggle="modal" data-target="#myModal2">For Login</a>
-
-
-  <!-- Modal -->
-  <div id="myModal2" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title"> หน้าล็อกอิน</h4>
-        </div>
-        <div class="modal-body">
-          <form name="form1" method="post" action="check_login.php">
-            <B>Login</B><br>
-            <table border="2" style="width: 200px">
-              <tbody>
-                <tr>
-                  <td> &nbsp;Username</td>
-                  <td>
-                    <input name="txtUsername" type="text" id="txtUsername">
-                  </td>
-                </tr>
-                <tr>
-                  <td> &nbsp;Password</td>
-                  <td><input name="txtPassword" type="password" id="txtPassword">
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-
-            <input type="submit" name="Submit" value="Login">
-          </form>
-          <br>
-        </div>
-      </div>
-
-    </div>
-  </div>
-  <title>GOTCHA |</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="utf-8" />
-  <meta name="keywords" content="Fashion Hub Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-	SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
-  <script>
-    addEventListener("load", function() {
-      setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-      window.scrollTo(0, 1);
-    }
-  </script>
-  <!-- Custom Theme files -->
-  <link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
-  <!-- shop css -->
-  <link href="css/shop.css" type="text/css" rel="stylesheet" media="all">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <!-- Owl-Carousel-CSS -->
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="all">
-  <!-- font-awesome icons -->
-  <link href="css/fontawesome-all.min.css" rel="stylesheet">
-  <!-- //Custom Theme files -->
-  <!-- online-fonts -->
-  <link href="//fonts.googleapis.com/css?family=Elsie+Swash+Caps:400,900" rel="stylesheet">
-  <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
-  <!-- //online-fonts -->
-</head>
+<?php include("h.php"); ?>
 
 <body>
-  <!-- header -->
-  <header>
-    <div class="container">
-      <!-- top nav -->
-      <nav class="top_nav d-flex pt-3 pb-1">
-        <!-- logo -->
-        <h1>
-          <a class="navbar-brand" href="index.html">GOTCHA
-          </a>
-        </h1>
-        <!-- //logo -->
-        <div class="w3ls_right_nav ml-auto d-flex">
-          <!-- search form -->
-          <form class="nav-search form-inline my-0 form-control" action="#" method="post">
-            <select class="form-control input-lg" name="category">
-              <option value="all">Search our store</option>
-              <optgroup label="Bags">
-                <option value="Bagket Bags">Bagket Bags</option>
-                <option value="Shoulder Bags">Shoulder Bags</option>
-                <option value="Shoulder Bags">Small Shoulder Bags</option>
-                <option value="Card Pocket">Card Pocket</option>
-                <option value="Wallet Bags">Wallet Bags</option>
-                <option value="Clutch Bags">Clutch Bags</option>
-
-
-              </optgroup>
-
-
-            </select>
-            <input class="btn btn-outline-secondary  ml-3 my-sm-0" type="submit" value="Search">
-          </form>
-          <!-- search form -->
-          <div class="nav-icon d-flex">
-
-            <a class="portfolio-link" data-toggle="modal" href="">
-              <div class="portfolio-hover">
-              </div>
-
-              <a href="login/login.php" class="btn btn-outline-secondary  ml-3 my-sm-0">Login</a>
-          </div>
-
-          <!-- sigin and sign up -->
-          <!-- shopping cart -->
-
-          <!-- //shopping cart ends here -->
-        </div>
-    </div>
-    </div>
-    </nav>
-    <!-- //top nav -->
-    <!-- bottom nav -->
-    <nav class="navbar navbar-expand-lg navbar-light justify-content-center">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto text-center">
-          <li class="nav-item">
-            <a class="nav-link  active" href="index.html">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item dropdown has-mega-menu" style="center;">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Bags</a>
-            <div class="dropdown-menu" style="center">
-              <div class="px-0 container">
-                <div class="row">
-                  <div class="col-md-10">
-                    <a class="dropdown-item" href="shopbagket.php">Bagket Bags</a>
-                    <a class="dropdown-item" href="shopshoulder.php">Shoulder Bags</a>
-                    <a class="dropdown-item" href="shouderbag.php">Small Shoulder Bags</a>
-                    <a class="dropdown-item" href="shopcard.php">Card Pocket</a>
-                    <a class="dropdown-item" href="shopwallet.php">Wallet Bags</a>
-                    <a class="dropdown-item" href="shopclutch.php">Clutch Bags</a>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="about.html">About</a>
-          </li>
-          <!-- <li class="nav-item">
-                            <a class="nav-link" href="blog.html">Blog</a>
-                        </li> -->
-          <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="checkout.html">Cart</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <!-- //bottom nav -->
-    </div>
-    <!-- //header container -->
-  </header>
+<?php include("header.php"); ?>
   <!-- //header -->
   <!-- banner -->
   <div class="banner-text">
@@ -258,7 +87,7 @@ $result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON
         <img class="img-fluid" src="images/home/g1.jpg" alt="">
         <div class="overlay">
           <h5>Wallet</h5>
-          <a class="info" href="shopwallet.html">Shop Now</a>
+          <a class="info" href="shopwallet.php">Shop Now</a>
         </div>
       </div>
     </div>
@@ -292,8 +121,8 @@ $result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON
     <!-- card group  -->
     <div class="card-group">
       <!-- card -->
-      <? while($product = mysqli_fetch_array($result)) : ?>
-        
+      <? while ($product = mysqli_fetch_array($result)) : ?>
+
         <div class="col-lg-3 col-sm-6 p-0">
 
           <div class="card product-men p-3">
@@ -305,7 +134,7 @@ $result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON
                 <img class="img-fluid" src="<?php echo "images/" . $product["pic"]; ?>" alt="">
               </a>
 
-              
+
               <div class="portfolio-modal modal fade" id="portfolioModal<? echo $product["id_pro"]; ?>" tabindex="-1" role="dialog" aria-hidden="true">
                 <div class="modal-dialog">
                   <div class="modal-content">
@@ -367,16 +196,16 @@ $result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON
                                 <font color="red">Gotcha(ก๊อตช่า)</font>
                               </li>
                               <li><B>Color : </B>
-                                <font color="red"><?=$product["name_color"] ?></font>
+                                <font color="red"><?= $product["name_color"] ?></font>
                               </li>
                               <li><B>Size : </B>
-                                <font color="red"><?=$product["size"] ?></font>
+                                <font color="red"><?= $product["size"] ?></font>
                               </li>
                               <li><B>Material : </B>
-                                <font color="red"><?=$product["material"] ?></font>
-                              </li>                            
+                                <font color="red"><?= $product["material"] ?></font>
+                              </li>
                               <li><B>Number of products : </B>
-                                <font color="red"><?=$product["total"]?></font>
+                                <font color="red"><?= $product["total"] ?></font>
                               </li>
                             </ul>
                             <br>
@@ -408,9 +237,9 @@ $result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON
 
               <form action="" method="post">
 
-                <a href="updatecart.php?itemId=<?php echo $meResult['ProductID']; ?>" role="button" class="fa fa-cart-plus" aria-hidden="true">
-                </a>
-
+                <!-- <a href="updatecart.php?itemId=<?php echo $meResult['ProductID']; ?>" role="button" class="fa fa-cart-plus" aria-hidden="true">
+                </a> -->
+                <button type="button" class="fa fa-cart-plus" onClick="addCart(<?= $id_cus ?>, <?= $product['id_pro'] ?>)"></button>
               </form>
             </div>
           </div>
@@ -551,12 +380,30 @@ $result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON
     <!-- //script for show signin and signup modal -->
     <!-- smooth dropdown -->
     <script>
+      function addCart(id_cus, id_pro) {
+        console.log(id_cus, id_pro)
+        $.get("http://localhost/gotcha/cart.php?id_pro="+id_pro+"&id_cus="+id_cus, function(data, status){
+          console.log(data)
+          Swal.fire({
+            title: 'เพิ่มสินค้าลงตะกร้าสำเร็จ',
+            icon: 'success',
+            showCloseButton: true,
+            showConfirmlButton: true,
+            confirmButtonText:"ไปที่ตะกร้า"
+            }).then(function(res){
+              if(res.value)
+                window.location.assign("http://localhost/gotcha/checkout.php")
+            })
+        })
+      }
+
       $(document).ready(function() {
         $('ul li.dropdown').hover(function() {
           $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
         }, function() {
           $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
         });
+
       });
     </script>
     <!-- //smooth dropdown -->

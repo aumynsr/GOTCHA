@@ -1,5 +1,5 @@
 <?php
-require 'connect.php';
+require '../connect.php';
 $name = $_POST['name'];
 //echo"$name";
 
@@ -19,7 +19,7 @@ echo ("<script LANGUAGE='JavaScript'>
             </script>");
         exit;
 }
-$sql = "INSERT INTO customer (name_cus, email, password_cus) VALUES ('$name', '$email', '$password')";
+$sql = "INSERT INTO users (name_cus, email, password_cus, type) VALUES ('$name', '$email', '$password' ,'customer')";
 $result = mysqli_query($dbcon, $sql);
     if ($result) {
         // echo ("<script>console.log('$result')</script>");

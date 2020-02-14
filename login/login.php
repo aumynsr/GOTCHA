@@ -30,21 +30,21 @@
 					<img src="images/img-01.png" alt="IMG">
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post" action = logincheck.php>
 					<span class="login100-form-title">
 						Member Login
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email">
+						<input class="input100" type="text" id="email" name="email" value="customer@gmail.com" placeholder="email">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
 						</span>
 					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+					<div class="wrap-input100 validate-input" data-validate = "password is required">
+						<input class="input100" type="password" id="password" name="password" value="12345678" placeholder="password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -60,6 +60,10 @@
 									<div class="text-center p-t-136">
 						<a class="txt2" href="../register/register.php">
 							Create your Account
+						</a>
+						<div class="text-center p-t-136">
+						<a class="txt2" href="../admin_area/login.php">
+							for admin
 						</a>
 					</div>
 				</form>

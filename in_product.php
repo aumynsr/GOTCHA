@@ -217,7 +217,7 @@ $keyword = $_POST['keyword'];
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mx-auto text-center">
               <li class="nav-item">
-                <a class="nav-link" href="about.html">
+                <a class="nav-link" href="about.php">
                   <font size="4">สั่งซื้อสินค้าเข้าร้าน</font>
                 </a>
               </li>
@@ -227,17 +227,17 @@ $keyword = $_POST['keyword'];
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">
+                <a class="nav-link" href="about.php">
                   <font size="4">ตรวจสอบการชำระเงิน</font>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">
+                <a class="nav-link" href="about.php">
                   <font size="4">ยืนยันการจัดส่ง</font>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">
+                <a class="nav-link" href="about.php">
                   <font size="4">ออกรายงาน</font>
                 </a>
               </li>
@@ -318,6 +318,24 @@ $keyword = $_POST['keyword'];
           </p>
           <p>รูปสินค้า</p>
         </th>
+        <th width="50" bgcolor="#FFE4C4">
+          <p>
+            <font color="#483D8B">detail</font>
+          </p>
+          <p>รายละเอียดสินค้า</p>
+        </th>
+        <th width="50" bgcolor="#FFE4C4">
+          <p>
+            <font color="#483D8B">size</font>
+          </p>
+          <p>ไซต์</p>
+        </th>
+        <th width="50" bgcolor="#FFE4C4">
+          <p>
+            <font color="#483D8B">material</font>
+          </p>
+          <p>วัสดุ</p>
+        </th>
         </tr>
 
 
@@ -335,10 +353,13 @@ $keyword = $_POST['keyword'];
           <th align="left"><input type="text" name="color_pro" /></th>
           <th align="left"><input type="text" name="total" /></th>
           <th align="left"><input type="file" name="pic" /></th>
+          <th align="left"><input type="text" name="detail" /></th>
+          <th align="left"><input type="text" name="size" /></th>
+          <th align="left"><input type="text" name="material" /></th>
         </tr>
 
 
-        <th colspan="10" align="left"><button class="w3-button w3-teal" class="nav-link text-uppercase text-expanded" type="submit" name="button" id="button">บันทึก</button></p>
+        <th colspan="11" align="center"><button class="w3-button w3-teal" class="nav-link text-uppercase text-expanded" type="submit" name="button" id="button">บันทึก</button></p>
         </th>
         </tr>
         </tbody>
@@ -406,12 +427,31 @@ $keyword = $_POST['keyword'];
               </p>
               <p>ยอดคงเหลือ</p>
             </th>
-            <th width="50" bgcolor="#FFE4C4">
+            <th width="70" bgcolor="#FFE4C4">
               <p>
-                <font color="#483D8B">pic</font>
+                <font color="#483D8B" >pic</font>
               </p>
               <p>รูปสินค้า</p>
             </th>
+            <th width="70" bgcolor="#FFE4C4">
+              <p>
+                <font color="#483D8B">detail</font>
+              </p>
+              <p>รายละเอียดสินค้า</p>
+            </th>
+            <th width="70" bgcolor="#FFE4C4">
+              <p>
+                <font color="#483D8B">size</font>
+              </p>
+              <p>ไซต์</p>
+            </th>
+            <th width="70" bgcolor="#FFE4C4">
+              <p>
+                <font color="#483D8B">material</font>
+              </p>
+              <p>วัสดุ</p>
+            </th>
+
 
 
 
@@ -435,6 +475,9 @@ $keyword = $_POST['keyword'];
               $name_cat   = $data['name_cat'];
               $color_pro   = $data['color_pro'];
               $total     = $data['total'];
+              $detail    = $data['detail'];
+              $size       = $data['size'];
+              $material       = $data['material'];
 
 
             ?>
@@ -455,6 +498,11 @@ $keyword = $_POST['keyword'];
             <th align="center"><?php echo $name_cat; ?></th>
             <th align="center"><?php echo $color_pro; ?></th>
             <th align="center"><?php echo $total; ?></th>
+            <th align="center"><?php echo $pic; ?></th>
+            <th align="center"><?php echo $detail; ?></th>
+            <th align="center"><?php echo $size; ?></th>
+            <th align="center"><?php echo $material  ; ?></th>
+          
 
           </tr> <? } ?>
         </tbody>

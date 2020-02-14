@@ -1,3 +1,13 @@
+<?
+$hostdb = 'localhost';   // MySQl host
+$userdb = 'root';    // MySQL username
+$passdb = '12345678';    // MySQL password
+$namedb = 'gotcha';
+
+$db = new mysqli($hostdb, $userdb, $passdb, $namedb);
+$result = $db->query("SELECT * FROM cart INNER JOIN product ON product.id_pro = cart.id_pro WHERE id_cus=1");
+
+?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -280,12 +290,81 @@
 
                                 <div class="pay_info">
                                     <div class="vertical_post">
-                                        <form action="#" method="post">
-										<h5>กรุณาเลือกออเดอร์แจ้งชำระเงิน</h5>
-										 <select class="form-control" style="width:300px" name="select2" id="select2" onChange="MM_jumpMenu('parent',this,0)" >
-										<option value="0">กรุณาเลือก OrderID</option>
-										</select>
-										<br>
+                                        <form action="summary.php" method="post">										
+                                        <h5>รายการที่ต้องชำระสินค้า</h5>
+                                        <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+
+                        <!-- <th>รูปสินค้า </th> -->
+                        <th>รหัสสินค้า</th>
+                        <th>ชื่อสินค้า</th>
+                        <th>จำนวนที่ซื้อ</th>
+                        <th>ราคา/ชิ้น</th>
+                        <th>รวม</th>
+                      
+                    </tr>
+                </thead>
+                <tbody>
+                    <? $sum=0;
+                    ?>
+                    <? while ($product = mysqli_fetch_array($result)) : ?>
+                        <tr>
+                            <!-- <td class="product-thumbnail">
+                                <img src="images/<?=$product["pic"]?>" alt="Image" class="img-fluid" style="width:200px;height:200px">
+                            </td> -->
+
+                            <td class="product-id">
+                                <h2 class="h5 text-black"><?=$product["id_pro"]?></h2>
+                                <input type="hidden" value="<?=$product["id_pro"]?>" id="id_pro"/>
+                            </td>
+
+
+                            <td class="product-id">
+                                <h2 class="h5 text-black"><?=$product["name_pro"]?></h2>
+                                <input type="hidden" value="<?=$product["name_pro"]?>" id="name_pro"/>
+                            </td>
+
+                            <td class="product-id">
+                                <?=$product["cart_total"]?>
+                                <input type="hidden" value="<?=$product["cart_total"]?>" id="cart_total"/>
+                            </td>
+
+                            <td class="product-id">
+                                <h2 class="h5 text-black"><?=$product["price"]?></h2>
+                                <input type="hidden" value="<?=$product["price"]?>" id="price"/>                               
+                            </td>
+
+                            <td class="product-id">
+                                <h2 class="h5 text-black"><?=$product["price"]*$product["cart_total"]?></h2>
+                                <input type="hidden" value="<?=$product["price"]*$product["cart_total"]?>" id="total"/>
+                            
+                                <? $sum+=$product["price"]*$product["cart_total"]?>                              
+                            </td>
+
+
+
+
+
+
+
+
+                        </tr>
+                    <? endwhile; ?>
+                    <tr>
+                        <td colspan="8" style="text-align: right;">
+                        <h2 class="h5 text-black">ราคารวม <?=$sum?></h2>
+                           
+                    
+                        </td>
+                    </tr>
+
+
+
+                </tbody>
+            </table>
+
+                                        <br>
                                             <h5>Select From Popular Banks</h5>
                                             <div class="swit-radio">
                                                 <div class="check_box_one">
@@ -333,9 +412,9 @@
                                             </div>
 											
 											<p><span id="sprytextfield1">File
-                <p><input required type="file"  id="filUpload3">
+                <p><input type="file"  id="filUpload3">
               </span>
-											<p><a href="thankyou.html" class="btn btn-sm height-auto px-4 py-3 btn-primary">Pay Now</a></p>
+											<p><input type="submit" class="btn btn-sm height-auto px-4 py-3 btn-primary" value="Pay Now"/></p>
                                         </form>
                                     </div>
                                 </div>
