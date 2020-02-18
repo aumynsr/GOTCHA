@@ -16,7 +16,7 @@
 
 
 
-<title>Peripera</title>
+<title>GOTCHA</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -120,13 +120,16 @@ function MM_preloadImages() { //v3.0
     <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i" rel="stylesheet">
     <!-- //online-fonts -->
 </head>
-<a button type="button" class="btn btn-info" href="admin.html">Sign out</a>
+
 <body>
 
 <body background="logo.jpt">
 <body background="https://cf.shopee.co.th/file/0ee9093d87a503e31aa42ad31165030c">
     <!-- header -->
     <header>
+      <br>
+      <br>
+      
         <div class="container">
             <!-- top nav -->
             <nav class="top_nav d-flex pt-3 pb-1">
@@ -136,92 +139,18 @@ function MM_preloadImages() { //v3.0
                     </a>
                 </h1>
                 <!-- //logo -->
-                <div class="w3ls_right_nav ml-auto d-flex">
-                    
-                    <div class="nav-icon d-flex">
-                        <!-- sigin and sign up -->
-                        	
-						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal25">
-              <div class="portfolio-hover">
-              </div>
-              
-            </a>
-</div>
-		  
-		   <div class="portfolio-modal modal fade" id="portfolioModal25" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->			
-					</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-	</div>
-
-	<!------------------------------------------------------------->
-	                
-                        <!-- //shopping cart ends here -->
-                    </div>
-                </div>
-				</div>
             </nav>
-            <!-- //top nav -->
-            <!-- bottom nav -->
-            <nav class="navbar navbar-expand-lg navbar-light justify-content-center">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto text-center">
-                        <li class="nav-item">
-                            <a class="nav-link  active" href="in_product.php">สั่งซื้อสินค้าเข้าร้าน            
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-						<li class="nav-item">
-                            <a class="nav-link  active" href="index.html"> รับสินค้าเข้าคลัง                                         
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">ตรวจสอบการชำระเงิน</a>
-                        </li>
-						<li class="nav-item">
-                            <a class="nav-link" href="about.html">ยืนยันการจัดส่ง</a>
-                        </li>	
-						<li class="nav-item">
-                            <a class="nav-link" href="about.html">ออกรายงาน</a>
-                        </li>						
-						        
-                    </ul>
-                </div>
-            </nav>
-            <!-- //bottom nav -->
-        </div>
-        <!-- //header container -->
+  </div>
     </header>
     <!-- //header -->
 
 <body>
 <form id="form1" name="form1" method="post" action="in_product_edit2.php">
-  <table width="1400" border="1" align="center" cellpadding="0" cellspacing="0">
+  <table width="10%" border="1" align="center" cellpadding="0" cellspacing="0">
     <tbody>
       <tr>
-        <th width="98" bgcolor="#FFCC99"><p><u><font color="Indigo">id_pro</font></u></p>
-          <p><u>รหัสสินค้า</u></p></th>
+        <th width="98" bgcolor="#FFCC99"><font color="Indigo">id_pro</font>
+          รหัสสินค้า</th>
         <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">name_pro</font></p>
           ชื่อสินค้า</th>
 		  <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">price</font></p>
@@ -231,9 +160,18 @@ function MM_preloadImages() { //v3.0
 		  <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">name_cat</font></p>
           ชื่อประเภทสินค้า</th>
 		  <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">color_pro</font></p>
-          <p>สีสินค้า</p></th>
+          สีสินค้า</th>
 		  <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">total</font></p>
-          <p>ยอดคงเหลือ</p></th>
+          ยอดคงเหลือ</th>
+      <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">pic</font></p>
+          รูปสินค้า</th>
+      <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">detail</font></p>
+          รายละเอียดสินค้า</th>
+      <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">size</font></p>
+         ไซต์</th>
+      <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">material</font></p>
+         วัสดุ</th>
+          
         
       </tr>
 
@@ -254,7 +192,11 @@ include("Connection_inc.php"); $link = connectToDB();//ติดต่อฐา�
 				$id_cat	=$data['id_cat'];
 				$name_cat 	=$data['name_cat'];
 				$color_pro 	=$data['color_pro'];	
-				$total 	=$data['total'];				
+        $total 	=$data['total'];		
+        $pic 		= $data['pic'];
+        $detail 	= $data['detail'];
+        $size		= $data['size'];
+        $material 	= $data['material'];		
 	  }
 ?>	  
 	 
@@ -264,15 +206,19 @@ include("Connection_inc.php"); $link = connectToDB();//ติดต่อฐา�
           <label for="id_pro"></label>
         <input name="id_pro" type="text"  readonly="readonly"  
 		style="background:#999" id="id_pro" value="<?=$id_pro?>"  size="5" /></th>
-        <th align="left"><input type="text" id="name_pro" value="<?=$name_pro?>"  name="name_pro" /></th>
-        <th align="left"><input type="text" id="price" value="<?=$price?>"  name="price" /></th>
+    <th align="left"><input type="text" id="name_pro" value="<?=$name_pro?>"  name="name_pro" /></th>
+    <th align="left"><input type="text" id="price" value="<?=$price?>"  name="price" /></th>
 		<th align="left"><input type="text" id="id_cat" value="<?=$id_cat?>"  name="id_cat" /></th>
 		<th align="left"><input type="text" id="name_cat" value="<?=$name_cat?>"  name="name_cat" /></th>
-		 <th align="left"><input type="text" id="color_pro" value="<?=$color_pro?>"  name="color_pro" /></th>
-		  <th align="left"><input type="text" id="total" value="<?=$total?>"  name="total" /></th>
+		<th align="left"><input type="text" id="color_pro" value="<?=$color_pro?>"  name="color_pro" /></th>
+    <th align="left"><input type="text" id="total" value="<?=$total?>"  name="total" /></th>
+    <th align="left"><input type="file" id="pic" value="<?=$pic?>"  name="pic" /></th>
+    <th align="left"><input type="text" id="detail" value="<?=$detail?>"  name="detail" /></th>
+    <th align="left"><input type="text" id="size" value="<?=$size?>"  name="size" /></th>
+    <th align="left"><input type="text" id="material" value="<?=$material?>"  name="material" /></th>
        </tr>
 	   <tr>
-       <th colspan="10" align="center"><input class="btn btn-warning"  class="nav-link text-uppercase text-expanded" type="submit" name="button" id="button" value="บันทึก" /></th>
+       <th colspan="11" align="center"><input class="btn btn-warning"  class="nav-link text-uppercase text-expanded" type="submit" name="button" id="button" value="บันทึก" /></th>
       </tr>
     </tbody>
   </table></form>

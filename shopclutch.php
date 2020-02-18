@@ -3,17 +3,47 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?
+session_start();
+
+///////////หาค่า max ของ id
+
+$hostdb = 'localhost';   // MySQl host
+$userdb = 'root';    // MySQL username
+$passdb = '12345678';    // MySQL password
+$namedb = 'gotcha';   // MySQL database name
+mysql_connect($hostdb, $userdb, $passdb);
+mysql_select_db($namedb);
+mysql_set_charset("utf8");
+$attribute = $_POST['attribute'];
+$keyword = $_POST['keyword'];
+$db = new mysqli($hostdb, $userdb, $passdb, $namedb);
+$category="%";
+if(isset($_GET["category"])){
+  $category=$_GET["category"];
+}
+$result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON color.id_color = product.color_pro where id_cat=".$category);
+$id_cus=0;
+if(isset($_SESSION["id_cus"])){
+  $id_cus=$_SESSION["id_cus"];
+}
+
+
+// while ($product = mysqli_fetch_array($result)){
+//   print_r($product);
+// }
+?>
+
 
 <!DOCTYPE html>
 <html lang="zxx">
-
 
 <?php include("h.php"); ?>
 
 <body>
 <?php include("header.php"); ?>
-    <!-- //header -->
-	<!-- inner banner -->
+  <!-- //header -->
+  <!-- banner -->
 	<div class="ibanner_w3 pt-sm-5 pt-3">
 		<h4 class="head_agileinfo text-center text-capitalize text-center pt-5">
 			<span>C</span>lutch
@@ -36,116 +66,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="row my-lg-5 mb-5">
 				<!-- grid left -->
 				<div class="side-bar col-lg-3">
-					<!--preference -->
+					
 					<div class="left-side">
-						<h3 class="shopf-sear-headits-sear-head">
-							Categories</h3>
-						<ul>
-							<li>
-								<input type="checkbox" class="checked" name="cat1" id="cat1">
-								<label for="cat1">Fashion</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="cat2" id="cat2">
-								<label for="cat2">Popular</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="cat3" id="cat3">
-								<label for="cat3">Trending</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="cat4" id="cat4">
-								<label for="cat4">Sort by popularity</label>
-							</li>
-
-						</ul>
-					</div>
-					<!-- // preference -->
-					<div class="search-hotel">
-						<h3 class="shopf-sear-headits-sear-head">
-							<span>Brand</span> in focus</h3>
-						<form action="#" method="post">
-							<input type="search" placeholder="search here" name="search" required="">
-							<input type="submit" value="Search">
-						</form>
-					</div>
-					<!-- price range -->
-					<div class="range">
-						<h3 class="shopf-sear-headits-sear-head">
-							<span>Price</span> range</h3>
-						<ul class="dropdown-menu6">
-							<li>
-
-								<div id="slider-range"></div>
-								<input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
-							</li>
-						</ul>
-					</div>
-					<!-- //price range -->
-					<!--preference -->
-					<div class="left-side">
-						<h3 class="shopf-sear-headits-sear-head">
-							<span>latest</span> arrivals</h3>
-						<ul>
-							<li>
-								<input type="checkbox" class="checked" name="arr1" id="arr1">
-								<label for="arr1">last 30 days</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="arr2" id="arr2">
-								<label for="arr2">last 90 days</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="arr3" id="arr3">
-								<label for="arr3">last 150 days</label>
-							</li>
-
-						</ul>
-					</div>
-					<!-- // preference -->
-					<!-- discounts -->
-					<div class="left-side">
-						<h3 class="shopf-sear-headits-sear-head">Sizes</h3>
-						<ul>
-							<li>
-								<input type="checkbox" class="checked" name="size1" id="size1">
-								<label for="size1">XS</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="size2" id="size2">
-								<label for="size2">S</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="size3" id="size3">
-								<label for="size3">M</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="size4" id="size4">
-								<label for="size4">L</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="size5" id="size5">
-								<label for="size5">XL</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="size6" id="size6">
-								<label for="size6">XXL</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="size7" id="size7">
-								<label for="size7">XXXL</label>
-							</li>
-						</ul>
-					</div>
-					<!-- //discounts -->
-					<!-- Binding -->
-					<div class="left-side">
-						<h3 class="shopf-sear-headits-sear-head">Color</h3>
+					<h3 class="shopf-sear-headits-sear-head">Color</h3>
 						<div class="d-flex">
 							<ul>
 								<li>
 									<input type="checkbox" class="checked" name="color1" id="color1">
-									<label for="color1">Black</label>
+									<label for="color1">Sugar Brown</label>
 								</li>
 								<li>
 									<input type="checkbox" class="checked" name="color2" id="color2">
@@ -153,906 +81,248 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 								</li>
 								<li>
 									<input type="checkbox" class="checked" name="color3" id="color3">
-									<label for="color3">Red</label>
+									<label for="color3">Black</label>
 								</li>
 								<li>
 									<input type="checkbox" class="checked" name="color4" id="color4">
-									<label for="color4">Yellow</label>
+									<label for="color4">Grey</label>
 								</li>
 								<li>
 									<input type="checkbox" class="checked" name="color5" id="color5">
-									<label for="color5">White</label>
-								</li>
-							</ul>
-							<ul>
-								<li>
+									<label for="color5">Maroon</label>
+                </li>
+                <li>
 									<input type="checkbox" class="checked" name="color6" id="color6">
-									<label for="color6">Green</label>
+									<label for="color6">Mustard</label>
 								</li>
 								<li>
 									<input type="checkbox" class="checked" name="color7" id="color7">
-									<label for="color7">Multi</label>
+									<label for="color7">Pink</label>
 								</li>
 								<li>
 									<input type="checkbox" class="checked" name="color8" id="color8">
-									<label for="color8">Purple</label>
+									<label for="color8">Vanilla Cream</label>
 								</li>
 								<li>
 									<input type="checkbox" class="checked" name="color9" id="color9">
-									<label for="color9">Gold</label>
+									<label for="color9">Beige</label>
 								</li>
 								<li>
 									<input type="checkbox" class="checked" name="color10" id="color10">
-									<label for="color10">Orange</label>
+									<label for="color10">Red</label>
+                </li>
+              </ul>
+              
+							<ul>
+								<li>
+									<input type="checkbox" class="checked" name="color11" id="color11">
+									<label for="color11">White</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color12" id="color12">
+									<label for="color12">Yellow</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color13" id="color13">
+									<label for="color13">Light Nude</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color14" id="color14">
+									<label for="color14">Cream</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color15" id="color15">
+									<label for="color15">Khaki</label>
+                </li>
+                <li>
+									<input type="checkbox" class="checked" name="color16" id="color16">
+									<label for="color16">Charcoal</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color17" id="color17">
+									<label for="color17">Plum</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color18" id="color18">
+									<label for="color18">Navy Blue</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color20" id="color20">
+									<label for="color20">LightGrey</label>
 								</li>
 							</ul>
 						</div>
 					</div>
 					<!-- //Binding -->
-					<!-- discounts -->
-					<div class="left-side">
-						<h3 class="shopf-sear-headits-sear-head">Discount</h3>
-						<ul>
-							<li>
-								<input type="checkbox" class="checked" name="dis1" id="dis1">
-								<label for="dis1">5% - 20%</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="dis2" id="dis2">
-								<label for="dis2">20% - 40%</label>
-							</li>
-							<li>
-								<input type="checkbox" class="dis3" name="dis3" id="dis3">
-								<label for="dis3">40% - 60%</label>
-							</li>
-							<li>
-								<input type="checkbox" class="checked" name="dis4" id="dis4">
-								<label for="dis4">60% or more</label>
-							</li>
-						</ul>
-					</div>
-					<!-- //discounts -->
-					<!-- reviews -->
-					<div class="customer-rev left-side">
-						<h3 class="shopf-sear-headits-sear-head">Customer Review</h3>
-						<ul>
-							<li>
-								<a href="#">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<span>5.0</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-									<span>4.0</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-half-o" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-									<span>3.5</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-									<span>3.0</span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star" aria-hidden="true"></i>
-									<i class="fa fa-star-half-o" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-									<i class="fa fa-star-o" aria-hidden="true"></i>
-									<span>2.5</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<!-- //reviews -->
-				</div>
 				
-				<!-- //grid left -->
-				<!-- grid right -->
-				<div class="col-lg-9 mt-lg-0 mt-5 right-product-grid">
-					<!-- card group  -->
-					<div class="card-group">					
-		
-			
-		
-						<!-- card -->
-						<div class="col-lg-3 col-sm-6 p-0">
-						
-							<div class="card product-men p-3">
-								<div class="men-thumb-item">
-									
-						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-              <div class="portfolio-hover">
-              </div>
-              <img class="img-fluid" src="images/clutch/c1.jpg" alt="">
-            </a>
+  </div>
+  <div class="col-lg-9 mt-lg-7 mt-7 right-product-grid">
+    <!-- card group  -->
+    <div class="card-group">
+      <!-- card -->
+      <? while ($product = mysqli_fetch_array($result)) : ?>
 
-		  
-		   <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Gotcha Salis Folder Printed Beige</h2>
-                  <p class="item-intro text-muted">WOMEN คลัทช์</p>
-				   <div class="caption">
+        <div class="col-lg-3 col-sm-6 p-0">
 
-                        <ul class="rating-single">
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"> </div>
-                        <h6>
-                            ฿545.00</h6>
+          <div class="card product-men p-3">
+            <div class="men-thumb-item">
+
+              <a class="portfolio-link" data-toggle="modal" href="#portfolioModal<? echo $product["id_pro"]; ?>">
+                <div class="portfolio-hover">
+                </div>
+                <img class="img-fluid" src="<?php echo "images/" . $product["pic"]; ?>" alt="">
+              </a>
+
+
+              <div class="portfolio-modal modal fade" id="portfolioModal<? echo $product["id_pro"]; ?>" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal">
+                      <div class="lr">
+                        <div class="rl"></div>
+                      </div>
                     </div>
-                  <img class="img-fluid d-block mx-auto" src="images/clutch/c1.jpg" alt="">
-				  <br><h6><B>
-                            The description</h6></B>
-							
-                  <p>กระเป๋าของเราใช้ได้ทุกเพศทุกวัย เหมาะกับวันสบายๆหรือทางการก็ดี มีรูปแบบที่ทันสมัยและไม่ซ้ำใคร ตอบโจทย์ไลฟ์สไตล์วัยรุ่นยุคใหม่ และวัยทำงาน แมทต์กับการแต่งตัวได้ง่ายสีสันไม่ฉูดฉาด</p>
-					<br>
-					
-				  <ul class="list-inline">
-				 <li><B>Brand :  </B><font color="red">Gotcha(ก๊อตช่า)</font></li>
-                    <li><B>Color :  </B><font color="red">Beige</font></li>
-                    <li><B>Size :  </B><font color="red">Normal</font></li>
-                    <li><B>Material :  </B><font color="red">Pu leather</font></li>
-					<li><B>Use :  </B><font color="red">Official</font></li>
-					<li><B>Number of products :  </B><font color="red">16</font></li>
-					<br>
-					 
-				<B>Details</B>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                          <div class="modal-body">
+                            <!-- Project Details Go Here -->
+                            <h2 class="text-uppercase"><? echo $product["name_pro"]; ?></h2>
+                            <p class="item-intro text-muted">WOMEN กระเป๋าสะพาย</p>
+                            <div class="caption">
 
-<br>
-				 <p>แฟ้ม gotcha สามารถใส่ A4 , คอม ใหญ่ถึง 14 นิ้ว มีบุกันกระแทก สามารถใส่ชีทได้สองชั้นด้วยกัน ข้างในมีซับใน</p>
-				 
-				 
-                  </ul>
-				  <br>
-				 <p> <h3 align = 'center'><button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>ปิด</button>
-					
-					
-					</div>
+                              <ul class="rating-single">
+                                <li>
+                                  <a href="#">
+                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                  </a>
+                                </li>
+                                <li>
+                                  <a href="#">
+                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                                  </a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"> </div>
+                              <h6>
+                                ฿1,900.00</h6>
+                            </div>
+                            <img class="img-fluid d-block mx-auto" src="images/<?php echo $product["pic"]; ?>" alt="">
+                            <br>
+
+                            <B>Details</B>
+
+                            <br>
+                            <p><? echo $product["detail"]; ?></p><br>
+
+                            <ul class="list-inline">
+                              <li><B>Brand : </B>
+                                <font color="red">Gotcha(ก๊อตช่า)</font>
+                              </li>
+                              <li><B>Color : </B>
+                                <font color="red"><?= $product["name_color"] ?></font>
+                              </li>
+                              <li><B>Size : </B>
+                                <font color="red"><?= $product["size"] ?></font>
+                              </li>
+                              <li><B>Material : </B>
+                                <font color="red"><?= $product["material"] ?></font>
+                              </li>
+                              <li><B>Number of products : </B>
+                                <font color="red"><?= $product["total"] ?></font>
+                              </li>
+                            </ul>
+                            <br>
+                            <p>
+                              <h3 align='center'><button class="btn btn-primary" data-dismiss="modal" type="button">
+                                  <i class="fas fa-times"></i>ปิด</button>
+
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
+
+
+            <!-- card body -->
+            <div class="card-body  py-3 px-2">
+              <h5 class="card-title text-capitalize"><? echo $product["name_pro"]; ?></h5>
+              <div class="">
+                <!-- <p class="text-dark font-weight-bold"></p> -->
+                <p class="line-through">฿<? echo $product["price"]; ?></p>
+              </div>
+            </div>
+            <!-- card footer -->
+            <div class="card-footer d-flex justify-content-end">
+
+              <form action="" method="post">
+
+                <!-- <a href="updatecart.php?itemId=<?php echo $meResult['ProductID']; ?>" role="button" class="fa fa-cart-plus" aria-hidden="true">
+                </a> -->
+                
+                <button type="button" class="fa fa-cart-plus" onClick="addCart(<?= $id_cus ?>, <?= $product['id_pro'] ?>)"></button>
+              </form>
             </div>
           </div>
         </div>
-      </div>
+      <? endwhile; ?>
+      <!-- product >
+      <!-------------------------------------------------------------------------------->
+      <!-- //card -->
+      <!-- //row  -->
     </div>
-	</div>
-	
-								
-								<!-- card body -->
-								<div class="card-body  py-3 px-2">
-									<h5 class="card-title text-capitalize">Gotcha Salis Folder Printed Beige</h5>
-									<div class="card-text d-flex justify-content-between">
-										<p class="text-dark font-weight-bold">฿545.00</p>
-										<p class="line-through">฿595.00</p>
-									</div>
-								</div>
-								<!-- card footer -->
-								<div class="card-footer d-flex justify-content-end">
-								
-									<form action="#" method="post">
-											
-										<a  href="updatecart.php?itemId=<?php echo $meResult['ProductID']; ?>" role="button" class="fa fa-cart-plus" aria-hidden="true">
-                                 </a>
-								
-									</form>
-								</div>
-							</div>
-						</div>
-						
-						
-						
-						
-					
-						<!-------------------------------------------------------------------------------->
-						
-						<!-- card -->
-						<div class="col-lg-3 col-sm-6 p-0">
-						
-							<div class="card product-men p-3">
-								<div class="men-thumb-item">
-									
-						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-              <div class="portfolio-hover">
-              </div>
-              <img class="img-fluid" src="images/clutch/c2.jpg" alt="">
-            </a>
+    <!-- //card group -->
+  </div>
+</div>
+  </div>
+  </div>
+  </div>
+  <!--// Shop -->
 
-		  
-		   <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Gotcha Salis Folder Printed Grey</h2>
-                  <p class="item-intro text-muted">WOMEN คลัทช์</p>
-				   <div class="caption">
-
-                        <ul class="rating-single">
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"> </div>
-                        <h6>
-                            ฿545.00</h6>
-                    </div>
-                  <img class="img-fluid d-block mx-auto" src="images/clutch/c2.jpg" alt="">
-				  <br><h6><B>
-                            The description</h6></B>
+						
+				
 							
-                  <p>กระเป๋าของเราใช้ได้ทุกเพศทุกวัย เหมาะกับวันสบายๆหรือทางการก็ดี มีรูปแบบที่ทันสมัยและไม่ซ้ำใคร ตอบโจทย์ไลฟ์สไตล์วัยรุ่นยุคใหม่ และวัยทำงาน แมทต์กับการแต่งตัวได้ง่ายสีสันไม่ฉูดฉาด</p>
-					<br>
-					
-				  <ul class="list-inline">
-				 <li><B>Brand :  </B><font color="red">Gotcha(ก๊อตช่า)</font></li>
-                    <li><B>Color :  </B><font color="red">Grey</font></li>
-                    <li><B>Size :  </B><font color="red">Normal</font></li>
-                    <li><B>Material :  </B><font color="red">Pu leather</font></li>
-					<li><B>Use :  </B><font color="red">Official</font></li>
-					<li><B>Number of products :  </B><font color="red">20</font></li>
-					<br>
-					 
-				<B>Details</B>
-
-<br>
-				 <p>สามารถใส่ของจุกจิก,เงิน,บัตร,กุญแจ,แป้งพับ,ลิปสติก </p>
-				 
-				 
-                  </ul>
-				  <br>
-				 
-                  <p> <h3 align = 'center'><button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>ปิด</button></p>
-					
-					
-					</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-	</div>
-	
 								
-								<!-- card body -->
-								<div class="card-body  py-3 px-2">
-									<h5 class="card-title text-capitalize">Gotcha Salis Folder Printed Grey</h5>
-									<div class="card-text d-flex justify-content-between">
-										<p class="text-dark font-weight-bold">545.00</p>
-										<p class="line-through">฿595.00</p>
-									</div>
-								</div>
-								<!-- card footer -->
-								<div class="card-footer d-flex justify-content-end">
-								
-									<form action="#" method="post">
-											
-										<a  href="updatecart.php?itemId=<?php echo $meResult['ProductID']; ?>" role="button" class="fa fa-cart-plus" aria-hidden="true">
-                                 </a>
-								
-									</form>
-								</div>
-							</div>
+							<!-- //card -->
+							<!-- //row  -->
 						</div>
-						
-						
-						
-						
-					
-						<!-------------------------------------------------------------------------------->
-						
-						<!-- card -->
-						<div class="col-lg-3 col-sm-6 p-0">
-						
-							<div class="card product-men p-3">
-								<div class="men-thumb-item">
-									
-						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-              <div class="portfolio-hover">
-              </div>
-              <img class="img-fluid" src="images/clutch/c3.jpg" alt="">
-            </a>
-
-		  
-		   <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Gotcha Salis Folder Printed Black</h2>
-                  <p class="item-intro text-muted">WOMEN คลัทช์</p>
-				   <div class="caption">
-
-                        <ul class="rating-single">
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"> </div>
-                        <h6>
-                            ฿545.00</h6>
-                    </div>
-                  <img class="img-fluid d-block mx-auto" src="images/clutch/c3.jpg" alt="">
-				  <br><h6><B>
-                            The description</h6></B>
-							
-                  <p>กระเป๋าของเราใช้ได้ทุกเพศทุกวัย เหมาะกับวันสบายๆหรือทางการก็ดี มีรูปแบบที่ทันสมัยและไม่ซ้ำใคร ตอบโจทย์ไลฟ์สไตล์วัยรุ่นยุคใหม่ และวัยทำงาน แมทต์กับการแต่งตัวได้ง่ายสีสันไม่ฉูดฉาด</p>
-					<br>
-					
-				  <ul class="list-inline">
-				 <li><B>Brand :  </B><font color="red">Gotcha(ก๊อตช่า)</font></li>
-                    <li><B>Color :  </B><font color="red">Black</font></li>
-                    <li><B>Size :  </B><font color="red">Normal</font></li>
-                    <li><B>Material :  </B><font color="red">Pu leather</font></li>
-					<li><B>Use :  </B><font color="red">Official</font></li>
-					<li><B>Number of products :  </B><font color="red">22</font></li>
-					<br>
-					 
-				<B>Details</B>
-
-<br>
-				 <p>แฟ้ม gotcha สามารถใส่ A4 , คอม ใหญ่ถึง 14 นิ้ว มีบุกันกระแทก สามารถใส่ชีทได้สองชั้นด้วยกัน ข้างในมีซับใน</p>
-				 
-				 
-                  </ul>
-				  <br>
-				 <p> <h3 align = 'center'><button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>ปิด</button></p>
-					
-					
+						<!-- //card group -->
 					</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-	</div>
-	
-								
-								<!-- card body -->
-								<div class="card-body  py-3 px-2">
-									<h5 class="card-title text-capitalize">Gotcha Salis Folder Printed Black</h5>
-									<div class="card-text d-flex justify-content-between">
-										<p class="text-dark font-weight-bold">฿545.00</p>
-										<p class="line-through">฿595.00</p>
-									</div>
-								</div>
-								<!-- card footer -->
-								<div class="card-footer d-flex justify-content-end">
-								
-									<form action="#" method="post">
-											
-										<a  href="updatecart.php?itemId=<?php echo $meResult['ProductID']; ?>" role="button" class="fa fa-cart-plus" aria-hidden="true">
-                                 </a>
-								
-									</form>
-								</div>
-							</div>
-						</div>
-						
-						
-						
-						
-					
-						<!-------------------------------------------------------------------------------->
-						
-						<!-- card -->
-						<div class="col-lg-3 col-sm-6 p-0">
-						
-							<div class="card product-men p-3">
-								<div class="men-thumb-item">
-									
-						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-              <div class="portfolio-hover">
-              </div>
-              <img class="img-fluid" src="images/clutch/c4.jpg" alt="">
-            </a>
-
-		  
-		   <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Gotcha Span Folder Clutch Grey</h2>
-                  <p class="item-intro text-muted">WOMEN กระเป๋าสะพาย</p>
-				   <div class="caption">
-
-                        <ul class="rating-single">
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"> </div>
-                        <h6>
-                            ฿575.00</h6>
-                    </div>
-                  <img class="img-fluid d-block mx-auto" src="images/clutch/c4.jpg" alt="">
-				  <br><h6><B>
-                            The description</h6></B>
-							
-                  <p>กระเป๋าของเราใช้ได้ทุกเพศทุกวัย เหมาะกับวันสบายๆหรือทางการก็ดี มีรูปแบบที่ทันสมัยและไม่ซ้ำใคร ตอบโจทย์ไลฟ์สไตล์วัยรุ่นยุคใหม่ และวัยทำงาน แมทต์กับการแต่งตัวได้ง่ายสีสันไม่ฉูดฉาด</p>
-					<br>
-					
-				  <ul class="list-inline">
-				 <li><B>Brand :  </B><font color="red">Gotcha(ก๊อตช่า)</font></li>
-                    <li><B>Color :  </B><font color="red">Grey</font></li>
-                    <li><B>Size :  </B><font color="red">Normal</font></li>
-                    <li><B>Material :  </B><font color="red">Pu leather</font></li>
-					<li><B>Use :  </B><font color="red">Official</font></li>
-					<li><B>Number of products : </B><font color="red">35</font></li>
-					<br>
-					 
-				<B>Details</B>
-
-<br>
-				 <p>แฟ้มบุซับใน สามารถ ใส่คอมพิวเตอร์ได้ถึง 14 นิ้ว และ แบ่งการใส่ของได้ถึง 3 ชั้น </p>
-				 
-				 
-                  </ul>
-				  <br>
-				 <p> <h3 align = 'center'><button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>ปิด</button></p>
-					
-					
-					</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-	</div>
-	
-								
-								<!-- card body -->
-								<div class="card-body  py-3 px-2">
-									<h5 class="card-title text-capitalize">Gotcha Span Folder Clutch Grey</h5>
-									<div class="card-text d-flex justify-content-between">
-										<p class="text-dark font-weight-bold">฿575.00</p>
-										<p class="line-through">฿625.00</p>
-									</div>
-								</div>
-								<!-- card footer -->
-								<div class="card-footer d-flex justify-content-end">
-								
-									<form action="#" method="post">
-											
-										<a  href="updatecart.php?itemId=<?php echo $meResult['ProductID']; ?>" role="button" class="fa fa-cart-plus" aria-hidden="true">
-                                 </a>
-								
-									</form>
-								</div>
-							</div>
-						</div>
-						
-						
-						
-						
-					
-						<!-------------------------------------------------------------------------------->
-						
-						
-						<!-- card -->
-						<div class="col-lg-3 col-sm-6 p-0">
-						
-							<div class="card product-men p-3">
-								<div class="men-thumb-item">
-									
-						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-              <div class="portfolio-hover">
-              </div>
-              <img class="img-fluid" src="images/clutch/c5.jpg" alt="">
-            </a>
-
-		  
-		   <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Gotcha Span Folder Clutch Light gray</h2>
-                  <p class="item-intro text-muted">WOMEN คลัทช์</p>
-				   <div class="caption">
-
-                        <ul class="rating-single">
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"> </div>
-                        <h6>
-                           ฿575.00</h6>
-                    </div>
-                  <img class="img-fluid d-block mx-auto" src="images/clutch/c5.jpg" alt="">
-				  <br><h6><B>
-                            The description</h6></B>
-							
-                  <p>กระเป๋าของเราใช้ได้ทุกเพศทุกวัย เหมาะกับวันสบายๆหรือทางการก็ดี มีรูปแบบที่ทันสมัยและไม่ซ้ำใคร ตอบโจทย์ไลฟ์สไตล์วัยรุ่นยุคใหม่ และวัยทำงาน แมทต์กับการแต่งตัวได้ง่ายสีสันไม่ฉูดฉาด</p>
-					<br>
-					
-				  <ul class="list-inline">
-				 <li><B>Brand :  </B><font color="red">Gotcha(ก๊อตช่า)</font></li>
-                    <li><B>Color :  </B><font color="red">Light gray</font></li>
-                    <li><B>Size :  </B><font color="red">Normal</font></li>
-                    <li><B>Material :  </B><font color="red">Pu leather</font></li>
-					<li><B>Use :  </B><font color="red">Official</font></li>
-					<li><B>Number of products :  </B><font color="red">25</font></li>
-					<br>
-					 
-				<B>Details</B>
-
-<br>
-				 <p>แฟ้มบุซับใน สามารถ ใส่คอมพิวเตอร์ได้ถึง 14 นิ้ว และ แบ่งการใส่ของได้ถึง 3 ชั้น</p>
-				 
-				 
-                  </ul>
-				  <br>
-				 <p> <h3 align = 'center'><button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>ปิด</button></p>
-					
-					
-					</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-	</div>
-	
-								
-								<!-- card body -->
-								<div class="card-body  py-3 px-2">
-									<h5 class="card-title text-capitalize">Gotcha Span Folder Clutch Light gray</h5>
-									<div class="card-text d-flex justify-content-between">
-										<p class="text-dark font-weight-bold">฿575.00</p>
-										<p class="line-through">฿625.00</p>
-									</div>
-								</div>
-								<!-- card footer -->
-								<div class="card-footer d-flex justify-content-end">
-								
-									<form action="#" method="post">
-											
-										<a  href="updatecart.php?itemId=<?php echo $meResult['ProductID']; ?>" role="button" class="fa fa-cart-plus" aria-hidden="true">
-                                 </a>
-								
-									</form>
-								</div>
-							</div>
-						</div>
-						
-						
-						
-						
-					
-						<!-------------------------------------------------------------------------------->
-						
-						
-						<!-- card -->
-						<div class="col-lg-3 col-sm-6 p-0">
-						
-							<div class="card product-men p-3">
-								<div class="men-thumb-item">
-									
-						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-              <div class="portfolio-hover">
-              </div>
-              <img class="img-fluid" src="images/clutch/c6.jpg" alt="">
-            </a>
-
-		  
-		   <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
-            </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Gotcha Span Folder Clutch Muatard-Maroon</h2>
-                  <p class="item-intro text-muted">WOMEN ตลัทช์</p>
-				   <div class="caption">
-
-                        <ul class="rating-single">
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="fa fa-star yellow-star" aria-hidden="true"></span>
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="clearfix"> </div>
-                        <h6>
-                            ฿575.00</h6>
-                    </div>
-                  <img class="img-fluid d-block mx-auto" src="images/clutch/c6.jpg" alt="">
-				  <br><h6><B>
-                            The description</h6></B>
-							
-                  <p>กระเป๋าของเราใช้ได้ทุกเพศทุกวัย เหมาะกับวันสบายๆหรือทางการก็ดี มีรูปแบบที่ทันสมัยและไม่ซ้ำใคร ตอบโจทย์ไลฟ์สไตล์วัยรุ่นยุคใหม่ และวัยทำงาน แมทต์กับการแต่งตัวได้ง่ายสีสันไม่ฉูดฉาด</p>
-					<br>
-					
-				  <ul class="list-inline">
-				 <li><B>Brand :  </B><font color="red">Gotcha(ก๊อตช่า)</font></li>
-                    <li><B>Color :  </B><font color="red">Muatard-Maroon</font></li>
-                    <li><B>Size :  </B><font color="red">Normal</font></li>
-                    <li><B>Material :  </B><font color="red">Pu leather</font></li>
-					<li><B>Use :  </B><font color="red">Official</font></li>
-					<li><B>Number of products :  </B><font color="red">17</font></li>
-					<br>
-					 
-				<B>Details</B>
-
-<br>
-				 <p>แฟ้มบุซับใน สามารถ ใส่คอมพิวเตอร์ได้ถึง 14 นิ้ว และ แบ่งการใส่ของได้ถึง 3 ชั้น</p>
-				 
-				 
-                  </ul>
-				  <br>
-				 <p> <h3 align = 'center'><button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>ปิด</button></p>
-					
-					
-					</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-	</div>
-	
-								
-								<!-- card body -->
-								<div class="card-body  py-3 px-2">
-									<h5 class="card-title text-capitalize">Gotcha Span Folder Clutch Muatard-Maroon</h5>
-									<div class="card-text d-flex justify-content-between">
-										<p class="text-dark font-weight-bold">฿575.00</p>
-										<p class="line-through">฿625.00</p>
-									</div>
-								</div>
-								<!-- card footer -->
-								<div class="card-footer d-flex justify-content-end">
-								
-									<form action="#" method="post">
-											
-										<a  href="updatecart.php?itemId=<?php echo $meResult['ProductID']; ?>" role="button" class="fa fa-cart-plus" aria-hidden="true">
-                                 </a>
-								
-									</form>
-								</div>
-							</div>
-						</div>
-						
-						
-						
-						
-					
-						<!-------------------------------------------------------------------------------->
-					
-	
-						
-						<!-- //card -->
-						<!-- //row  -->
-					</div>
-					<!-- //card group -->
 				</div>
 			</div>
 		</div>
-	</div>
-	
-
-	<!--// Shop -->
- 
+		<!--// Shop -->
+	 
     <!-- //footer -->
+    <!-- sign up Modal -->
+
+	
+	
+							
+    <!-- signin Modal -->
+    <!-- js -->
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <!-- //js -->
+    <!-- smooth dropdown -->
 	 <footer>
         <div class="footerv2-w3ls">
             <div class="footer-w3lagile-innerr">
@@ -1150,112 +420,178 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
 		
     </footer>
+   <!-- //footer -->
+    <!-- sign up Modal -->
+
     <!-- signin Modal -->
     <!-- js -->
     <script src="js/jquery-2.2.3.min.js"></script>
     <!-- //js -->
+    <!-- script for show signin and signup modal -->
+
+    <!-- //script for show signin and signup modal -->
     <!-- smooth dropdown -->
     <script>
-        $(document).ready(function () {
-            $('ul li.dropdown').hover(function () {
-                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
-            }, function () {
-                $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
-            });
+      function addCart(id_cus=0, id_pro) {
+        console.log(id_cus, id_pro)
+        if(id_cus == ""){
+          Swal.fire({
+            title: "กรุณาเข้าสู่ระบบก่อนทำการสั่งซื้อสินค้า",
+            icon: "error"
+          })
+          return;
+        } 
+          
+        $.get("http://localhost/gotcha/cart.php?id_pro="+id_pro+"&id_cus="+id_cus, function(data, status){
+          console.log(data)
+          Swal.fire({
+            title: 'เพิ่มสินค้าลงตะกร้าสำเร็จ',
+            icon: 'success',
+            showCloseButton: true,
+            showConfirmlButton: true,
+            confirmButtonText:"ไปที่ตะกร้า"
+            }).then(function(res){
+              if(res.value)
+                window.location.assign("http://localhost/gotcha/checkout.php")
+            })
+        })
+      }
+
+      $(document).ready(function() {
+        $('ul li.dropdown').hover(function() {
+          $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
+        }, function() {
+          $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
         });
+
+      });
     </script>
     <!-- //smooth dropdown -->
     <!-- script for password match -->
     <script>
-        window.onload = function () {
-            document.getElementById("password1").onchange = validatePassword;
-            document.getElementById("password2").onchange = validatePassword;
-        }
+      window.onload = function() {
+        document.getElementById("password1").onchange = validatePassword;
+        document.getElementById("password2").onchange = validatePassword;
+      }
 
-        function validatePassword() {
-            var pass2 = document.getElementById("password2").value;
-            var pass1 = document.getElementById("password1").value;
-            if (pass1 != pass2)
-                document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-            else
-                document.getElementById("password2").setCustomValidity('');
-            //empty string means no validation error
-        }
+      function validatePassword() {
+        var pass2 = document.getElementById("password2").value;
+        var pass1 = document.getElementById("password1").value;
+        if (pass1 != pass2)
+          document.getElementById("password2").setCustomValidity("Passwords Don't Match");
+        else
+          document.getElementById("password2").setCustomValidity('');
+        //empty string means no validation error
+      }
     </script>
     <!-- script for password match -->
-	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
-	<script>
-		hub.render();
+    <!-- Banner Responsiveslides -->
+    <script src="js/responsiveslides.min.js"></script>
+    <script>
+      // You can also use "$(window).load(function() {"
+      $(function() {
+        // Slideshow 4
+        $("#slider3").responsiveSlides({
+          auto: false,
+          pager: true,
+          nav: false,
+          speed: 500,
+          namespace: "callbacks",
+          before: function() {
+            $('.events').append("<li>before event fired.</li>");
+          },
+          after: function() {
+            $('.events').append("<li>after event fired.</li>");
+          }
+        });
 
-		hub.cart.on('new_checkout', function (evt) {
-			var items, len, i;
+      });
+    </script>
+    <!-- // Banner Responsiveslides -->
+    <!-- Product slider Owl-Carousel-JavaScript -->
+    <script src="js/owl.carousel.js"></script>
+    <script>
+      var owl = $('.owl-carousel');
+      owl.owlCarousel({
+        items: 4,
+        loop: false,
+        margin: 10,
+        autoplay: false,
+        autoplayTimeout: 5000,
+        autoplayHoverPause: false,
+        responsive: {
+          320: {
+            items: 1,
+          },
+          568: {
+            items: 2,
+          },
+          991: {
+            items: 3,
+          },
+          1050: {
+            items: 4
+          }
+        }
+      });
+    </script>
+    <!-- //Product slider Owl-Carousel-JavaScript -->
+    <!-- cart-js -->
+    <script src="js/minicart.js">
+    </script>
+    <script>
+      hub.render();
 
-			if (this.subtotal() > 0) {
-				items = this.items();
+      hub.cart.on('new_checkout', function(evt) {
+        var items, len, i;
 
-				for (i = 0, len = items.length; i < len; i++) {}
-			}
-		});
-	</script>
-	<!-- //cart-js -->
-	<!-- price range (top products) -->
-	<script src="js/jquery-ui.js"></script>
-	<script>
-		//<![CDATA[ 
-		$(window).load(function () {
-			$("#slider-range").slider({
-				range: true,
-				min: 0,
-				max: 9000,
-				values: [50, 6000],
-				slide: function (event, ui) {
-					$("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-				}
-			});
-			$("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
+        if (this.subtotal() > 0) {
+          items = this.items();
 
-		}); //]]>
-	</script>
-	<!-- //price range (top products) -->
-	<script src="js/bootstrap.js"></script>
-	<!-- start-smoth-scrolling -->
-	<script src="js/move-top.js"></script>
-	<script src="js/easing.js"></script>
-	<script>
-		jQuery(document).ready(function ($) {
-			$(".scroll").click(function (event) {
-				event.preventDefault();
-				$('html,body').animate({
-					scrollTop: $(this.hash).offset().top
-				}, 1000);
-			});
-		});
-	</script>
-	<!-- start-smoth-scrolling -->
-	<!-- here stars scrolling icon -->
-	<script>
-		$(document).ready(function () {
-			/*
-				var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-				};
-			*/
+          for (i = 0, len = items.length; i < len; i++) {}
+        }
+      });
+    </script>
+    <!-- //cart-js -->
+    <!-- start-smooth-scrolling -->
+    <script src="js/move-top.js"></script>
+    <script src="js/easing.js"></script>
+    <script>
+      jQuery(document).ready(function($) {
+        $(".scroll").click(function(event) {
+          event.preventDefault();
 
-			$().UItoTop({
-				easingType: 'easeOutQuart'
-			});
+          $('html,body').animate({
+            scrollTop: $(this.hash).offset().top
+          }, 1000);
+        });
+      });
+    </script>
+    <!-- //end-smooth-scrolling -->
+    <!-- smooth-scrolling-of-move-up -->
+    <script>
+      $(document).ready(function() {
+        /*
+        var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear' 
+        };
+        */
 
-		});
-	</script>
-	<!-- //here ends scrolling icon -->
-	<!-- smoothscroll -->
-	<script src="js/SmoothScroll.min.js"></script>
-	<!-- //smoothscroll -->
+        $().UItoTop({
+          easingType: 'easeOutQuart'
+        });
 
+      });
+    </script>
+    <script src="js/SmoothScroll.min.js"></script>
+    <!-- //smooth-scrolling-of-move-up -->
+    <!-- Bootstrap core JavaScript
+================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/bootstrap.js"></script>
 </body>
 
 </html>

@@ -10,6 +10,10 @@ $id_cat = $_POST['id_cat'];
 $name_cat = $_POST['name_cat'];
 $color_pro = $_POST['color_pro'];
 $total = $_POST['total'];
+$pic 		= $_POST['pic'];
+$detail 	= $_POST['detail'];
+$size		= $_POST['size'];
+$material 	= $_POST['material'];
 
 
 
@@ -20,9 +24,14 @@ price='$price',
 id_cat='$id_cat',
 name_cat='$name_cat',
 color_pro='$color_pro',
-total='$total'
+total='$total',
+pic='$pic',
+detail='$detail',
+size='$size',
+material='$material'
 where
 id_pro='$id_pro'
+
 ";
 mysql_query("set  names  utf8");
 mysql_query($save);

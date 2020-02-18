@@ -18,8 +18,17 @@ mysql_set_charset("utf8");
 $attribute = $_POST['attribute'];
 $keyword = $_POST['keyword'];
 $db = new mysqli($hostdb, $userdb, $passdb, $namedb);
-$result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON color.id_color = product.color_pro");
-$id_cus = 1
+$category="'%'";
+if(isset($_GET["category"])){
+  $category=$_GET["category"];
+}
+$result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON color.id_color = product.color_pro where id_cat like ".$category);
+$id_cus=0;
+if(isset($_SESSION["id_cus"])){
+  $id_cus=$_SESSION["id_cus"];
+}
+
+
 // while ($product = mysqli_fetch_array($result)){
 //   print_r($product);
 // }
@@ -49,24 +58,13 @@ $id_cus = 1
               <h4 class="bn_right">
                 <span>B</span>ags
                 <span>f</span>ashion</h4>
-              <div class="bnr_clip position-relative">
-                <h4>get up to
-                  <span class="px-2">45% </span>
-                </h4>
+              <div class="bnr_clip position-relative">               
                 <div class="d-inline-flex flex-column banner-pos position-absolute text-center">
-                  <div class="bg-flex-item">
-                    <span>O</span>
-                  </div>
-                  <div class="bg-flex-item">
-                    <span>F</span>
-                  </div>
-                  <div class="bg-flex-item">
-                    <span>F
-                    </span>
+                  <div class="bg-flex-item">    
                   </div>
                 </div>
-                <p class="text-uppercase py-2">on special sale</p>
-                <a class="btn btn-primary mt-3 text-capitalize" href="" role="button">shop now</a>
+                <p class="text-uppercase py-2">on special bags</p>
+                
               </div>
             </div>
           </div>
@@ -96,7 +94,7 @@ $id_cus = 1
         <img class="img-fluid" src="images/home/g2.jpg" alt="">
         <div class="overlay">
           <h5>Card pocket</h5>
-          <a class="info" href="shopcard">Shop Now</a>
+          <a class="info" href="shopcard.php">Shop Now</a>
         </div>
       </div>
     </div>
@@ -105,7 +103,7 @@ $id_cus = 1
         <img class="img-fluid" src="images/home/g3.jpg" alt="">
         <div class="overlay">
           <h5>Small Shoulder Bags</h5>
-          <a class="info" href="shouderbag.html">Shop Now</a>
+          <a class="info" href="shouderbag.php">Shop Now</a>
         </div>
       </div>
     </div>
@@ -113,11 +111,112 @@ $id_cus = 1
   <!-- //grid left -->
   <!-- grid right -->
   <!-- product -->
-
-
-
-
-  <div class="col-lg-12 mt-lg-7 mt-7 right-product-grid">
+<div class="row">
+  <div class="col-lg-3">
+  <div class="side-bar col-lg-12">
+					
+					<div class="left-side">
+						<h3 class="shopf-sear-headits-sear-head">Color</h3>
+						<div class="d-flex">
+							<ul>
+								<li>
+									<input type="checkbox" class="checked" name="color1" id="color1">
+									<label for="color1">Sugar Brown</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color2" id="color2">
+									<label for="color2">Blue</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color3" id="color3">
+									<label for="color3">Black</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color4" id="color4">
+									<label for="color4">Grey</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color5" id="color5">
+									<label for="color5">Maroon</label>
+                </li>
+                <li>
+									<input type="checkbox" class="checked" name="color6" id="color6">
+									<label for="color6">Mustard</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color7" id="color7">
+									<label for="color7">Pink</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color8" id="color8">
+									<label for="color8">Vanilla Cream</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color9" id="color9">
+									<label for="color9">Beige</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color10" id="color10">
+									<label for="color10">Red</label>
+                </li>
+              </ul>
+              
+							<ul>
+								<li>
+									<input type="checkbox" class="checked" name="color11" id="color11">
+									<label for="color11">White</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color12" id="color12">
+									<label for="color12">Yellow</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color13" id="color13">
+									<label for="color13">Light Nude</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color14" id="color14">
+									<label for="color14">Cream</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color15" id="color15">
+									<label for="color15">Khaki</label>
+                </li>
+                <li>
+									<input type="checkbox" class="checked" name="color16" id="color16">
+									<label for="color16">Charcoal</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color17" id="color17">
+									<label for="color17">Plum</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color18" id="color18">
+									<label for="color18">Navy Blue</label>
+								</li>
+								<li>
+									<input type="checkbox" class="checked" name="color20" id="color20">
+									<label for="color20">LightGrey</label>
+								</li>
+								
+          
+							</ul>
+						</div>
+					</div>
+					<!-- //Binding -->
+					<!-- discounts -->
+					<div class="left-side">
+						
+					</div>
+					<!-- //discounts -->
+					<!-- reviews -->
+					<div class="customer-rev left-side">
+						
+					</div>
+					<!-- //reviews -->
+				</div>
+  </div>
+  <div class="col-lg-9 mt-lg-7 mt-7 right-product-grid">
     <!-- card group  -->
     <div class="card-group">
       <!-- card -->
@@ -239,6 +338,7 @@ $id_cus = 1
 
                 <!-- <a href="updatecart.php?itemId=<?php echo $meResult['ProductID']; ?>" role="button" class="fa fa-cart-plus" aria-hidden="true">
                 </a> -->
+                
                 <button type="button" class="fa fa-cart-plus" onClick="addCart(<?= $id_cus ?>, <?= $product['id_pro'] ?>)"></button>
               </form>
             </div>
@@ -252,6 +352,7 @@ $id_cus = 1
     </div>
     <!-- //card group -->
   </div>
+</div>
   </div>
   </div>
   </div>
@@ -270,104 +371,7 @@ $id_cus = 1
     <!-- insta posts -->
 
     <!-- //insta posts -->
-    <!-- footer -->
-    <footer>
-      <div class="footerv2-w3ls">
-        <div class="footer-w3lagile-innerr">
-          <!-- footer-top -->
-          <div class="container-fluid">
-            <div class="row  footer-v2grids w3-agileits">
-
-
-              <footer class="site-footer custom-border-top">
-                <div class="container">
-                  <div class="row">
-                    <div class="col-lg-2 col-sm-6 footer-v2grid">
-                      <h4>Support</h4>
-                      <ul>
-
-                        <li>
-                          <a href="payment.html">Payment</a>
-                        </li>
-                        <li>
-                          <a href="#">Shipping</a>
-                        </li>
-                        <li>
-                          <a href="#">Cancellation & Returns</a>
-                        </li>
-                        <li>
-                          <a href="faq.html">FAQ</a>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="col-lg-5 ml-auto mb-5 mb-lg-0">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <h3 class="footer-heading mb-4">Follow Us</h3>
-                        </div>
-
-
-                        <ul class="social-iconsv2 agileinfo">
-                          <li>
-                            <a href="https://web.facebook.com/gotchaofficials/">
-                              <i class="fab fa-facebook-f"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://twitter.com/?lang=th">
-                              <i class="fab fa-twitter"></i>
-                            </a>
-                          </li>
-
-                          <li>
-                            <a href="https://www.youtube.com/">
-                              <i class="fab fa-youtube"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://www.instagram.com/gotcha_official/">
-                              <i class="fab fa-linkedin-in"></i>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="https://mail.google.com/">
-                              <i class="fab fa-google-plus-g"></i>
-                            </a>
-                          </li>
-                        </ul>
-
-
-
-                      </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-3">
-                      <div class="block-5 mb-5">
-                        <h3 class="footer-heading mb-4">Address</h3>
-                        <ul class="list-unstyled">
-                          <li class="address">Rajamangala University of Technology Tawan-Ok : Chakrabongse Bhuvanarth Campus
-
-                            122 Vibhavadi Rangsit Road, Din Daeng Subdistrict, Din Daeng District, Bangkok 10400</li>
-                          <br>
-                          <li class="phone"><a href="tel://25932358">02-593-2358</a></li>
-                          <li class="email">gotchaofficial@gmail.com</li>
-                        </ul>
-                      </div>
-
-
-                    </div>
-                  </div>
-                  <br><B>ADMINISTRATOR</B>
-                  <br>YANISA,VATINEE,PATTARAT
-
-                </div>
-
-
-            </div>
-          </div>
-        </div>
-
-    </footer>
+   
     <!-- //footer -->
     <!-- sign up Modal -->
 
@@ -380,8 +384,16 @@ $id_cus = 1
     <!-- //script for show signin and signup modal -->
     <!-- smooth dropdown -->
     <script>
-      function addCart(id_cus, id_pro) {
+      function addCart(id_cus=0, id_pro) {
         console.log(id_cus, id_pro)
+        if(id_cus == ""){
+          Swal.fire({
+            title: "กรุณาเข้าสู่ระบบก่อนทำการสั่งซื้อสินค้า",
+            icon: "error"
+          })
+          return;
+        } 
+          
         $.get("http://localhost/gotcha/cart.php?id_pro="+id_pro+"&id_cus="+id_cus, function(data, status){
           console.log(data)
           Swal.fire({
@@ -533,5 +545,5 @@ $id_cus = 1
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.js"></script>
 </body>
-
+<?php include("footer.php"); ?>
 </html>

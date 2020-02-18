@@ -215,30 +215,49 @@ $keyword = $_POST['keyword'];
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto text-center">
+            <ul class="navbar-nav mx-auto text-center">    
+            <li class="nav-item dropdown has-mega-menu" style="center;">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><font size="3"><B>ข้อมูลทั่วไป</font></B></a>
+            <div class="dropdown-menu" style="center">
+              <div class="px-0 container">
+                <div class="row">
+                  <div class="col-md-10">
+                    <a class="dropdown-item" href="in_product.php"><font size="3">ข้อมูลสินค้า</font></a>
+                    <a class="dropdown-item" href="in_cate/in_cate.php"><font size="3">ข้อมูลประเภทสินค้า</font></a>
+                    <a class="dropdown-item" href="in_cus/in_cus.php"><font size="3">ข้อมูลลูกค้า</font></a>
+                    <a class="dropdown-item" href="in_add/in_add.php"><font size="3">ข้อมูลผู้ดูแลระบบ</font></a>
+                    <a class="dropdown-item" href="in_dealer/in_dealer.php"><font size="3">ข้อมูลผู้จัดจำหน่าย</font></a>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </li>      
+              
               <li class="nav-item">
-                <a class="nav-link" href="about.php">
-                  <font size="4">สั่งซื้อสินค้าเข้าร้าน</font>
+                <a class="nav-link" href="place.php">
+                  <font size="3">สั่งซื้อสินค้าเข้าร้าน</font>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="in_product.php">
-                  <font size="4">รับสินค้าเข้าคลัง</font>
+                <a class="nav-link" href="pickup.php">
+                  <font size="3">รับสินค้าเข้าคลัง</font>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="checkpay.php">
+                  <font size="3">ตรวจสอบการชำระเงิน</font>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="checklogis.php">
+                  <font size="3">ยืนยันการจัดส่ง</font>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="about.php">
-                  <font size="4">ตรวจสอบการชำระเงิน</font>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.php">
-                  <font size="4">ยืนยันการจัดส่ง</font>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.php">
-                  <font size="4">ออกรายงาน</font>
+                  <font size="3">ออกรายงาน</font>
                 </a>
               </li>
 
@@ -267,14 +286,14 @@ $keyword = $_POST['keyword'];
 
 
           ?><form id="form1" name="form1" method="post" action="in_product_new.php" enctype="multipart/from-data">
-            <table width="900" border="1" align="center" cellpadding="0" cellspacing="0">
+            <table width="20%" border="1" align="center" cellpadding="0" cellspacing="0">
               <tbody>
                 <tr>
-                  <th width="66" bgcolor="#FFE4C4">
-                    <p><u>
-                        <font color="#483D8B">id_pro</font>
-                      </u></p>
-                    <p><u>รหัสสินค้า</u></p>
+                <th width="50" bgcolor="#FFE4C4">
+                    <p>
+                      <font color="#483D8B">id_pro</font>
+                    </p>
+                    รหัสสินค้า
                   </th>
                   <th width="50" bgcolor="#FFE4C4">
                     <p>
@@ -292,49 +311,49 @@ $keyword = $_POST['keyword'];
                     <p>
                       <font color="#483D8B">id_cat</font>
                     </p>
-                    รหัสประเภทสินค้า</p>
-        </th>
-        <th width="50" bgcolor="#FFE4C4">
+                    รหัสประเภทสินค้า
+                  </th>
+                  <th width="50" bgcolor="#FFE4C4">
           <p>
             <font color="#483D8B">name_cat</font>
           </p>
-          <p>ชื่อประเภทสินค้า</p>
+          ชื่อประเภทสินค้า</p>
         </th>
         <th width="50" bgcolor="#FFE4C4">
           <p>
             <font color="#483D8B">color_pro</font>
           </p>
-          <p>สีสินค้า</p>
+          สีสินค้า</p>
         </th>
         <th width="50" bgcolor="#FFE4C4">
           <p>
             <font color="#483D8B">total</font>
           </p>
-          <p>ยอดคงเหลือ</p>
+          ยอดคงเหลือ</p>
         </th>
         <th width="50" bgcolor="#FFE4C4">
           <p>
             <font color="#483D8B">pic</font>
           </p>
-          <p>รูปสินค้า</p>
+          รูปสินค้า</p>
         </th>
         <th width="50" bgcolor="#FFE4C4">
           <p>
             <font color="#483D8B">detail</font>
           </p>
-          <p>รายละเอียดสินค้า</p>
+          รายละเอียดสินค้า</p>
         </th>
         <th width="50" bgcolor="#FFE4C4">
           <p>
             <font color="#483D8B">size</font>
           </p>
-          <p>ไซต์</p>
+          ไซต์</p>
         </th>
         <th width="50" bgcolor="#FFE4C4">
           <p>
             <font color="#483D8B">material</font>
           </p>
-          <p>วัสดุ</p>
+          วัสดุ</p>
         </th>
         </tr>
 
@@ -377,7 +396,7 @@ $keyword = $_POST['keyword'];
           <tr>
             <th width="66" bgcolor="#FFCC99">
               <h5>
-                <font color="Indigo">แก้ไข</font>
+                <font color="Indigo" >แก้ไข</font>
               </h5>
             </th>
             <th width="43" bgcolor="#FFCC99">
@@ -385,11 +404,11 @@ $keyword = $_POST['keyword'];
                 <font color="Indigo">ลบ</font>
               </h5>
             </th>
-            <th width="70" bgcolor="#FFE4C4">
-              <p><u>
+            <th width="90" bgcolor="#FFE4C4" >
+              <p>
                   <font color="#483D8B">id_pro</font>
-                </u></p>
-              <p><u>รหัสสินค้า</u></p>
+              </p>
+              รหัสสินค้า</p>
             </th>
             <th width="66" bgcolor="#FFE4C4">
               <p>
@@ -397,13 +416,13 @@ $keyword = $_POST['keyword'];
               </p>
               ชื่อสินค้า
             </th>
-            <th width="50" bgcolor="#FFE4C4">
+            <th width="90" bgcolor="#FFE4C4">
               <p>
                 <font color="#483D8B">price</font>
               </p>
               ราคาสินค้า
             </th>
-            <th width="70" bgcolor="#FFE4C4">
+            <th width="90" bgcolor="#FFE4C4">
               <p>
                 <font color="#483D8B">id_cat</font>
               </p>
@@ -413,43 +432,43 @@ $keyword = $_POST['keyword'];
               <p>
                 <font color="#483D8B">name_cat</font>
               </p>
-              <p>ชื่อประเภทสินค้า</p>
+            ชื่อประเภทสินค้า</p>
             </th>
             <th width="123" bgcolor="#FFE4C4">
               <p>
                 <font color="#483D8B">color_pro</font>
               </p>
-              <p>สีสินค้า</p>
+            สีสินค้า</p>
             </th>
             <th width="100" bgcolor="#FFE4C4">
               <p>
                 <font color="#483D8B">total</font>
               </p>
-              <p>ยอดคงเหลือ</p>
+            ยอดคงเหลือ</p>
             </th>
             <th width="70" bgcolor="#FFE4C4">
               <p>
                 <font color="#483D8B" >pic</font>
               </p>
-              <p>รูปสินค้า</p>
+            รูปสินค้า</p>
             </th>
             <th width="70" bgcolor="#FFE4C4">
               <p>
                 <font color="#483D8B">detail</font>
               </p>
-              <p>รายละเอียดสินค้า</p>
+            รายละเอียดสินค้า</p>
             </th>
             <th width="70" bgcolor="#FFE4C4">
               <p>
                 <font color="#483D8B">size</font>
               </p>
-              <p>ไซต์</p>
+            ไซต์</p>
             </th>
             <th width="70" bgcolor="#FFE4C4">
               <p>
                 <font color="#483D8B">material</font>
               </p>
-              <p>วัสดุ</p>
+            วัสดุ</p>
             </th>
 
 

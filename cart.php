@@ -1,4 +1,5 @@
 <?
+session_start();
 $hostdb = 'localhost';   // MySQl host
 $userdb = 'root';    // MySQL username
 $passdb = '12345678';    // MySQL password
@@ -6,9 +7,9 @@ $namedb = 'gotcha';
 $db = new mysqli($hostdb, $userdb, $passdb, $namedb);
 
 $id_pro = $_GET['id_pro'];
-$id_cus = $_GET['id_cus'];
+$id_cus = $_SESSION["id_cus"];
 $default_total = 1;
-
+print_r("userid ".$id_cus);
 $cart = $db->query("SELECT cart.cart_total FROM cart WHERE id_cus=" . $id_cus . " and id_pro=" . $id_pro);
 $total_cart = $cart->fetch_assoc();
 $sum = intval($total_cart["cart_total"] + $default_total);

@@ -4,13 +4,18 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?
+session_start();
 $hostdb = 'localhost';   // MySQl host
 $userdb = 'root';    // MySQL username
 $passdb = '12345678';    // MySQL password
 $namedb = 'gotcha';
 
+$id_cus=0;
+if(isset($_SESSION["id_cus"])){
+    $id_cus=$_SESSION["id_cus"];
+}
 $db = new mysqli($hostdb, $userdb, $passdb, $namedb);
-$result = $db->query("SELECT * FROM cart INNER JOIN product ON product.id_pro = cart.id_pro WHERE id_cus=1");
+$result = $db->query('SELECT * FROM cart INNER JOIN product ON product.id_pro = cart.id_pro WHERE id_cus='.$id_cus);
 
 ?>
 <!DOCTYPE html>

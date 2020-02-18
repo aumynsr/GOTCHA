@@ -67,11 +67,11 @@
               <div class="px-0 container">
                 <div class="row">
                   <div class="col-md-10">
-                    <a class="dropdown-item" href="shopbagket.php">Bagket Bags</a>
-                    <a class="dropdown-item" href="shopshoulder.php">Shoulder Bags</a>
-                    <a class="dropdown-item" href="shopcard.php">Card Pocket</a>
-                    <a class="dropdown-item" href="shopwallet.php">Wallet Bags</a>
-                    <a class="dropdown-item" href="shopclutch.php">Clutch Bags</a>
+                    <a class="dropdown-item" href="shopbagket.php?category=1">Bagket Bags</a>
+                    <a class="dropdown-item" href="shopshoulder.php?category=2">Shoulder Bags</a>
+                    <a class="dropdown-item" href="shopcard.php?category=4">Card Pocket</a>
+                    <a class="dropdown-item" href="shopwallet.php?category=5">Wallet Bags</a>
+                    <a class="dropdown-item" href="shopclutch.php?category=6">Clutch Bags</a>
                   </div>
 
 

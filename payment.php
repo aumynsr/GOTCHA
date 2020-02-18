@@ -1,11 +1,16 @@
 <?
+session_start();
 $hostdb = 'localhost';   // MySQl host
 $userdb = 'root';    // MySQL username
 $passdb = '12345678';    // MySQL password
 $namedb = 'gotcha';
 
 $db = new mysqli($hostdb, $userdb, $passdb, $namedb);
-$result = $db->query("SELECT * FROM cart INNER JOIN product ON product.id_pro = cart.id_pro WHERE id_cus=1");
+$id_cus=0;
+if($_SESSION["id_cus"]){
+    $id_cus=$_SESSION["id_cus"];
+}
+$result = $db->query("SELECT * FROM cart INNER JOIN product ON product.id_pro = cart.id_pro WHERE id_cus=".$id_cus);
 
 ?>
 <!DOCTYPE html>
@@ -290,7 +295,7 @@ $result = $db->query("SELECT * FROM cart INNER JOIN product ON product.id_pro = 
 
                                 <div class="pay_info">
                                     <div class="vertical_post">
-                                        <form action="summary.php" method="post">										
+                                        <form action="summary.php" method="post" enctype="multipart/form-data">										
                                         <h5>รายการที่ต้องชำระสินค้า</h5>
                                         <table class="table table-striped table-bordered">
                 <thead>
@@ -337,7 +342,7 @@ $result = $db->query("SELECT * FROM cart INNER JOIN product ON product.id_pro = 
 
                             <td class="product-id">
                                 <h2 class="h5 text-black"><?=$product["price"]*$product["cart_total"]?></h2>
-                                <input type="hidden" value="<?=$product["price"]*$product["cart_total"]?>" id="total"/>
+                                <input type="hidden" value="<?=$product["price"]*$product["cart_total"]?>" id="total" name="total"/>
                             
                                 <? $sum+=$product["price"]*$product["cart_total"]?>                              
                             </td>
@@ -365,56 +370,35 @@ $result = $db->query("SELECT * FROM cart INNER JOIN product ON product.id_pro = 
             </table>
 
                                         <br>
-                                            <h5>Select From Popular Banks</h5>
-                                            <div class="swit-radio">
-                                                <div class="check_box_one">
-                                                    <div class="radio_one">
-                                                        <label>
-                                                            <input type="radio" name="radio" checked="">
-                                                            <i></i>Scbbusinessnet</label>
-                                                    </div>
-                                                </div>
-                                                <div class="check_box_one">
-                                                    <div class="radio_one">
-                                                        <label>
-                                                            <input type="radio" name="radio">
-                                                            <i></i>Kasikorn Bank</label>
-                                                    </div>
-                                                </div>
-                                                <div class="check_box_one">
-                                                    <div class="radio_one">
-                                                        <label>
-                                                            <input type="radio" name="radio">
-                                                            <i></i>Bangkok Bank</label>
-                                                    </div>
-                                                </div>
-                                                <div class="check_box_one">
-                                                    <div class="radio_one">
-                                                        <label>
-                                                            <input type="radio" name="radio">
-                                                            <i></i>Krungsri Bank</label>
-                                                    </div>
-                                                </div>
+                                            <h5>ที่อยู่ในการจัดส่ง</h5>
+                                            <div>
                                                 
-                                                <div class="clearfix"></div>
+                                            <input id="name_delivery" name="name_delivery" placeholder="ชื่อผู้รับ"  /><br /><br />
+                                            <input id="phone" name="phone" placeholder="หมายเลขโทรศัพท์" /><br /><br />
+                                            <textarea id="address" name="address" rows="4" cols="50" placeholder="ที่อยู่..."></textarea><br />
+                                                <div class="clearfix"></div><br />
                                             </div>
+                                            <input id="zip" name="zip" placeholder="รหัสไปรษณีย์" maxlength="5"/><br />
+                                            <br />
                                             <h5>iBanking/Mobile banking</h5>
                                             <div class="section_room_pay">
-                                                <select class="year">
+                                                <select id="bank" name="bank" class="year">
                                                     <option value="">=== Other Banks ===</option>
-                                                    <option value="ALB-NA">Scbbusinessnet</option>
-                                                    <option value="ADB-NA">Kasikorn Bank</option>
-                                                    <option value="BBK-NA">Bangkok Bank</option>
-                                                    <option value="BBC-NA">Government Savings Bank</option>
-                                                    <option value="BBR-NA">Krungsri Bank</option>  
-													<option value="BBR-NA">Krungthai Bank</option>  													
+                                                    <option value="SCB Businessnet">Scbbusinessnet</option>
+                                                    <option value="Kasikorn Bank">Kasikorn Bank</option>
+                                                    <option value="Bangkok Bank">Bangkok Bank</option>
+                                                    <option value="Government Savings Bank">Government Savings Bank</option>
+                                                    <option value="Krungsri Bank">Krungsri Bank</option>  
+													<option value="Krungthai Bank">Krungthai Bank</option>  													
                                                 </select>
                                             </div>
 											
 											<p><span id="sprytextfield1">File
-                <p><input type="file"  id="filUpload3">
-              </span>
-											<p><input type="submit" class="btn btn-sm height-auto px-4 py-3 btn-primary" value="Pay Now"/></p>
+                                                <p><input name="slip" id="slip" type="file">
+                                            </span>
+                                            <br />
+                                            <p><input  type="submit" class="btn btn-sm height-auto px-4 py-3 btn-primary" value="Pay Now"/></p>
+                                            
                                         </form>
                                     </div>
                                 </div>

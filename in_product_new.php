@@ -7,9 +7,13 @@ include("Connection_inc.php"); $link =connectToDB();//ติดต่อฐา�
 				$name_cat	 = $_POST['name_cat'];
 				$color_pro	 = $_POST['color_pro'];
 				$total 		= $_POST['total'];
+				$pic 		= $_POST['pic'];
+				$detail 	= $_POST['detail'];
+				$size		= $_POST['size'];
+				$material 	= $_POST['material'];
 
 $save=" INSERT  INTO   product ()
-values ('$id_pro', '$name_pro', '$price','$id_cat', '$name_cat','$color_pro','$total')";
+values ('$id_pro', '$name_pro', '$price','$id_cat', '$name_cat','$color_pro','$total','$pic','$detail','$size','$material')";
 mysql_query("set  names  UTF8");
 mysql_query($save);
 
@@ -23,9 +27,9 @@ window.location='in_product.php';
  </script>";
 */
 
-
-
 ?>
+
+
 
 
 
