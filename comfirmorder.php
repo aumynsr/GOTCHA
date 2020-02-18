@@ -5,7 +5,10 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-<?php include("h.php"); ?>
+<?php include("h.php"); 
+    include("connect.php");
+    $result = $dbcon->query("select * from orders inner join payment on payment.id_payment = orders.id_payment inner join users on users.id_cus = orders.id_cus where status='paid'");
+?>
 
 <body>
 <?php include("header.php"); ?>
@@ -32,64 +35,44 @@
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
-
-                        
                         <th>รหัสการสั่งซื้อ</th>
-                        <th>รายละเอียด</th>
-                         <th>ยอดรวม</th>
-                        <th>หลักฐานการชำระเงิน</th>
+                        <th>ชื่อลูกค้า</th>
+                        <th>ธนาคาร</th>
+                        <th>สถานะ</th>
+                        <th>ราคารวม</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <? while ($product = mysqli_fetch_array($result)) : ?>
+                    <? while ($order = mysqli_fetch_array($result)) : ?>
                         <tr>
-                            <!--                             
+
                             <td class="product-id">
-                                <h2 class="h5 text-black"><?=$product["id_pro"]?></h2>
-                                <input type="hidden" value="<?=$product["id_pro"]?>" id="id_pro"/>
+                                <h2 class="h5 text-black"><?=$order["id_order"]?></h2>
                             </td>
 
 
                             <td class="product-id">
-                                <h2 class="h5 text-black"><?=$product["name_pro"]?></h2>
-                                <input type="hidden" value="<?=$product["name_pro"]?>" id="name_pro"/>
+                                <h2 class="h5 text-black"><?=$order["name_cus"]?></h2>
+                    
                             </td>
 
                             <td class="product-id">
-                                <?=$product["cart_total"]?>
-                                <input type="hidden" value="<?=$product["cart_total"]?>" id="cart_total"/>
+                                <h2 class="h5 text-black"><?=$order["bank"]?></h2>
+                                                               
                             </td>
-
                             <td class="product-id">
-                                <h2 class="h5 text-black"><?=$product["price"]?></h2>
-                                <input type="hidden" value="<?=$product["price"]?>" id="price"/>                               
+                            <h2 class="h5 text-black"><?=$order["status"]?></h2>
                             </td>
-
                             <td class="product-id">
-                                <h2 class="h5 text-black"><?=$product["price"]*$product["cart_total"]?></h2>
-                                <input type="hidden" value="<?=$product["price"]*$product["cart_total"]?>" id="total"/>                               
-                            </td> -->
-
-
-
-                           
-
-
-
-
-
+                                <h2 class="h5 text-black"><?=$order["total"]?></h2>
+                                                 
+                            </td>
+                            <td colspan="2" style="text-align: right;">
+                                <a href="confirm_detail.php?id_order=<?=$order["id_order"] ?>"class="btn btn-primary btn-lg">ดูรายละเอียด<a>
+                            </td>
                         </tr>
                     <? endwhile; ?>
-                    <tr>
-                        <td colspan="8" style="text-align: right;">
-
-                            
-                            <a href="#"class="btn btn-primary btn-lg">ยืนยันการชำระเงิน<a>
-                        </td>
-                    </tr>
-
-
                 </tbody>
             </table>
 
