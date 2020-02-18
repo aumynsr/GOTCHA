@@ -39,6 +39,16 @@ $cart=$db->query("select * from cart where id_cus=".$id_cus);
 while ($_cart = mysqli_fetch_array($cart)){
     $db->query("insert into order_list (id_pro,order_id,order_total) values (".$_cart["id_pro"].",".$order_id.",".$_cart["cart_total"].")") ;
     $db->query("delete from cart where id_cus=".$id_cus);
+
+    //select total มาจาก product
+    $r_total = $db->query("select total from product where id_pro=".$_cart["id_pro"]);
+    $total = $r_total->fetch_assoc()["total"];
+
+    // ลบสินค้าออกจากสต๊อก
+    $descrete = $total - $_cart["cart_total"];
+
+    //อัพเดทสต๊อกใหม่ในตราง product
+    $db->query("update product set total=".$descrete." where id_pro=".$_cart["id_pro"]);
 }
 ?>
 
