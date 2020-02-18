@@ -199,14 +199,12 @@ $keyword = $_POST['keyword'];
               <div class="px-0 container">
                 <div class="row">
                   <div class="col-md-10">
-                    <a class="dropdown-item" href="in_product.php"><font size="3">ข้อมูลสินค้า</font></a>
-                    <a class="dropdown-item" href="in_cate/in_cate.php"><font size="3">ข้อมูลประเภทสินค้า</font></a>
-                    <a class="dropdown-item" href="in_cus/in_cus.php"><font size="3">ข้อมูลลูกค้า</font></a>
-                    <a class="dropdown-item" href="in_add/in_add.php"><font size="3">ข้อมูลผู้ดูแลระบบ</font></a>
-                    <a class="dropdown-item" href="in_dealer/in_dealer.php"><font size="3">ข้อมูลผู้จัดจำหน่าย</font></a>
+                    <a class="dropdown-item" href="../in_product.php"><font size="3">ข้อมูลสินค้า</font></a>
+                    <a class="dropdown-item" href="../in_cate/in_cate.php"><font size="3">ข้อมูลประเภทสินค้า</font></a>
+                    <a class="dropdown-item" href="../in_cus/in_cus.php"><font size="3">ข้อมูลลูกค้า</font></a>
+                    <a class="dropdown-item" href="../in_add/in_add.php"><font size="3">ข้อมูลผู้ดูแลระบบ</font></a>
+                    <a class="dropdown-item" href="../in_dealer/in_dealer.php"><font size="3">ข้อมูลผู้จัดจำหน่าย</font></a>
                   </div>
-
-
                 </div>
               </div>
             </div>
