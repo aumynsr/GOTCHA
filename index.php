@@ -8,30 +8,19 @@ session_start();
 
 ///////////หาค่า max ของ id
 
-$hostdb = 'localhost';   // MySQl host
-$userdb = 'root';    // MySQL username
-$passdb = '12345678';    // MySQL password
-$namedb = 'gotcha';   // MySQL database name
-mysql_connect($hostdb, $userdb, $passdb);
-mysql_select_db($namedb);
-mysql_set_charset("utf8");
+include("connect.php");
 $attribute = $_POST['attribute'];
 $keyword = $_POST['keyword'];
-$db = new mysqli($hostdb, $userdb, $passdb, $namedb);
+
 $category="'%'";
 if(isset($_GET["category"])){
   $category=$_GET["category"];
 }
-$result = $db->query("SELECT product.*, color.* FROM product INNER JOIN color ON color.id_color = product.color_pro where id_cat like ".$category);
+$result = $dbcon->query("SELECT product.*, color.* FROM product INNER JOIN color ON color.id_color = product.color_pro where id_cat like ".$category);
 $id_cus=0;
 if(isset($_SESSION["id_cus"])){
   $id_cus=$_SESSION["id_cus"];
 }
-
-
-// while ($product = mysqli_fetch_array($result)){
-//   print_r($product);
-// }
 ?>
 
 
