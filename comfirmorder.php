@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-
-<!DOCTYPE html>
-<html lang="zxx">
-
 <?php include("h.php"); 
     include("connect.php");
     $result = $dbcon->query("select * from orders inner join payment on payment.id_payment = orders.id_payment inner join users on users.id_cus = orders.id_cus where status='paid'");

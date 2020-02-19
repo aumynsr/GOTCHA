@@ -6,7 +6,6 @@ session_start();
                   include("../connect.php");
                   $email = $_POST['email'];
                   $password = $_POST['password'];
-	              
                   $sql="SELECT * FROM users 
                   WHERE  email='$email' 
                   AND  password_cus='$password' ";
