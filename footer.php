@@ -1,4 +1,3 @@
-<?php session_start();?>
     <!-- footer -->
     <footer>
       <div class="footerv2-w3ls">

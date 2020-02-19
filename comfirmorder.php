@@ -3,7 +3,7 @@
 
 <?php include("h.php"); 
     include("connect.php");
-    $result = $dbcon->query("select * from orders inner join payment on payment.id_payment = orders.id_payment inner join users on users.id_cus = orders.id_cus where status='paid'");
+    
 ?>
 
 <body>
@@ -40,7 +40,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <? while ($order = mysqli_fetch_array($result)) : ?>
+                    <? 
+                    $result = $dbcon->query("select * from orders inner join payment on payment.id_payment = orders.id_payment inner join users on users.id_cus = orders.id_cus where status='paid'");
+                    while ($order = mysqli_fetch_array($result)) : ?>
                         <tr>
 
                             <td class="product-id">
@@ -65,7 +67,7 @@
                                                  
                             </td>
                             <td colspan="2" style="text-align: right;">
-                                <a href="confirm_detail.php?id_order=<?=$order["id_order"] ?>"class="btn btn-primary btn-lg">ดูรายละเอียด<a>
+                                <a href="detail_order.php?id_order=<?=$order["id_order"] ?>"class="btn btn-primary btn-lg">ดูรายละเอียด<a>
                             </td>
                         </tr>
                     <? endwhile; ?>

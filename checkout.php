@@ -5,18 +5,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <?
 session_start();
-$hostdb = 'localhost';   // MySQl host
-$userdb = 'root';    // MySQL username
-$passdb = '12345678';    // MySQL password
-$namedb = 'gotcha';
-
+include("connect.php");
 $id_cus=0;
 if(isset($_SESSION["id_cus"])){
     $id_cus=$_SESSION["id_cus"];
 }
-$db = new mysqli($hostdb, $userdb, $passdb, $namedb);
-$result = $db->query('SELECT * FROM cart INNER JOIN product ON product.id_pro = cart.id_pro WHERE id_cus='.$id_cus);
-
 ?>
 <!DOCTYPE html>
 <html lang="zxx">
@@ -63,7 +56,9 @@ $result = $db->query('SELECT * FROM cart INNER JOIN product ON product.id_pro = 
                     </tr>
                 </thead>
                 <tbody>
-                    <? while ($product = mysqli_fetch_array($result)) : ?>
+                    <? 
+                    $result = $dbcon->query('SELECT * FROM cart INNER JOIN product ON product.id_pro = cart.id_pro WHERE id_cus='.$id_cus);
+                    while ($product = mysqli_fetch_array($result)) : ?>
                         <tr>
                             <td class="product-thumbnail">
                                 <img src="images/<?=$product["pic"]?>" alt="Image" class="img-fluid" style="width:200px;height:200px">
