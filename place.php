@@ -273,15 +273,19 @@ $keyword = $_POST['keyword'];
         <label for="textfield2"></label>
       </td>
       <td width="76%"><label for="WHOrderID"></label>
-      <input name="WHOrderID" type="text" id="WHOrderID" style="background:#CCC" value="<?=$WHOrderID?>" readonly="readonly" /></td>
+      <input name="WHOrderID" type="text" id="WHOrderID" style="background:#CCC"  readonly="readonly" /></td>
     </tr>
     <tr>
       <td>วันที่สั่งซื้อ</td>
-      <td><input type="text" value="<?=$dateNow?>" name="WHOrderDate" id="WHOrderDate" /></td>
+      <td><input type="text"  name="Date" id="Date" /></td>
     </tr>
     <tr>
       <td>รหัสผู้จัดจำหน่าย</td>
-      <td><input type="text" value="<?=$dateNow?>" name="WHOrderDate" id="WHOrderDate" /></td>
+      <td><input type="text"  name="id_dealer" id="id_dealer" /></td>
+    </tr>
+    <tr>
+      <td>ชื่อผู้จัดจำหน่าย</td>
+      <td><input type="text"  name="name_dealer" id="name_dealer" /></td>
     </tr>
     <tr>
       <td>ที่อยู่</td>
