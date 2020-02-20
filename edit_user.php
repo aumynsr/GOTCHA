@@ -1,5 +1,12 @@
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
 <?php include("h.php"); ?>
-<?php include("header.php"); ?>
+
+<body>
+  <?php include("header.php"); ?>
 <?php
         include("connect.php");
         $result = $dbcon->query("select * from user");
