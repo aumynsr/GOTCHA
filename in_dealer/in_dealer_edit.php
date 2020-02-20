@@ -184,17 +184,18 @@ function MM_preloadImages() { //v3.0
 
 <body>
 <form id="form1" name="form1" method="post" action="in_dealer_edit2.php">
-  <table width="50%" border="1" align="center" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>
-        <th width="130" bgcolor="#FFCC99"><p><font color="Indigo">id_dealer</font></p>
-          รหัสผู้จัดจำหน่าย</p></th>
-        <th width="50" bgcolor="#FFCC99"><p><font color="Indigo">name_dealer</font></p>
-        ชื่อผู้จัดจำหน่าย</th>
-		  <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">address</font></p>
-      ที่อยู่ผู้จัดจำหน่าย</th>
-		  
-      </tr>
+  <section class="page-section cta">
+          <div class="container"> 
+              <table class="table table-striped table-bordered">
+                  <thead>
+                      <tr>                     
+                          <th width="150" bgcolor="#FFCC99"><font size="3">id_dealer</font></a></p>
+                          รหัสผู้จัดจำหน่าย</th>
+                          <th width="100" bgcolor="#FFCC99"><font size="3">name_dealer</font></a></p>
+                          ชื่อผู้จัดจำหน่าย</th>
+                          <th width="100" bgcolor="#FFCC99"><font size="3">address</font></a></p>
+                          ที่อยู่ผู้จัดจำหน่าย</th>
+      
 
 <?
 include("Connection_inc4.php"); $link = connectToDB();//ติดต่อฐานข้อมูล		   

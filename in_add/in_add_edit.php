@@ -148,18 +148,19 @@ function MM_preloadImages() { //v3.0
 
 <body>
 <form id="form1" name="form1" method="post" action="in_add_edit2.php">
-  <table width="50%" border="1" align="center" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>       
-		  <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">id_admin</font></p>
-          รหัสแอดมิน</th>
-		  <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">name_admin</font></p>
-          ชื่อแอดมิน</th>
-      <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">username_admin</font></p>
-          ชื่อผู้ใช้</th>
-      <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">password_admin</font></p>
-          รหัสผ่าน</th>
-      </tr>
+<section class="page-section cta">
+          <div class="container"> 
+              <table class="table table-striped table-bordered">
+                  <thead>
+                      <tr>
+                          <th width="30" bgcolor="#FFCC99"><font size="3">id_admin</font></a></p>
+                          รหัสแอดมิน</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">name_admin</font></a></p>
+                          ชื่อแอดมิน</th>
+                          <th width="30" bgcolor="#FFCC99"><font size="3">username_admin</font></a></p>
+                          ชื่อผู้ใช้</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">password_admin</font></a></p>
+                          รหัสผ่าน</th>
 
 <?
 include("Connection_inc3.php"); $link = connectToDB();//ติดต่อฐานข้อมูล		   

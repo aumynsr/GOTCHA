@@ -146,34 +146,36 @@ function MM_preloadImages() { //v3.0
 
 <body>
 <form id="form1" name="form1" method="post" action="in_product_edit2.php">
-  <table width="10%" border="1" align="center" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>
-        <th width="98" bgcolor="#FFCC99"><font color="Indigo">id_pro</font>
-          รหัสสินค้า</th>
-        <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">name_pro</font></p>
-          ชื่อสินค้า</th>
-		  <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">price</font></p>
-            ราคาสินค้า</th>
-		  <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">id_cat</font></p>
-          รหัสประเภทสินค้า</th>
-		  <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">name_cat</font></p>
-          ชื่อประเภทสินค้า</th>
-		  <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">color_pro</font></p>
-          สีสินค้า</th>
-		  <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">total</font></p>
-          ยอดคงเหลือ</th>
-      <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">pic</font></p>
-          รูปสินค้า</th>
-      <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">detail</font></p>
-          รายละเอียดสินค้า</th>
-      <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">size</font></p>
-         ไซต์</th>
-      <th width="113" bgcolor="#FFCC99"><p><font color="Indigo">material</font></p>
-         วัสดุ</th>
-          
-        
-      </tr>
+<section class="page-section cta">
+          <div class="container"> 
+              <table class="table table-striped table-bordered">
+                  <thead>
+                      <tr>
+                          <th width="50" bgcolor="#FFCC99" ><font size="3">id_pro</font></a></p>
+                    รหัสสินค้า</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">name_pro</font></a></p>
+                    ชื่อสินค้า</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">price</font></a></p>
+                    ราคาสินค้า</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">id_cat</font></p>
+                    รหัสประเภทสินค้า</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">name_cat</font></p>
+                   ชื่อประเภทสินค้า</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">color_pro</font></p>
+                   สีสินค้า</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">total</font></p>
+                   ยอดคงเหลือ</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">pic</font> </p>
+                  รูปสินค้า</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">detail</font></p>
+                  รายละเอียดสินค้า</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">size</font></p>
+                  ไซต์</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">material</font></p>
+                 วัสดุ</th>
+                     
+                      </tr>
+                  </thead>
 
 <?
 include("Connection_inc.php"); $link = connectToDB();//ติดต่อฐานข้อมูล		   

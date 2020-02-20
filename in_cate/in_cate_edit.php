@@ -146,16 +146,17 @@ function MM_preloadImages() { //v3.0
 		  
 
 
-<body>
-<form id="form1" name="form1" method="post" action="in_cate_edit2.php">
-  <table width="50%" border="1" align="center" cellpadding="0" cellspacing="0">
-    <tbody>
-      <tr>       
-		  <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">id_cat</font></p>
-          รหัสประเภทสินค้า</th>
-		  <th width="136" bgcolor="#FFCC99"><p><font color="Indigo">name_cat</font></p>
-          ชื่อประเภทสินค้า</th>
-      </tr>
+<body><form id="form1" name="form1" method="post" action="in_cate_edit2.php">
+<section class="page-section cta">
+          <div class="container"> 
+              <table class="table table-striped table-bordered">
+                  <thead>
+                      <tr>
+                          <th width="30" bgcolor="#FFCC99"><font size="3">id_cat</font></a></p>
+                    รหัสประเภทสินค้า</th>
+                          <th width="50" bgcolor="#FFCC99"><font size="3">name_cat</font></a></p>
+                    ชื่อประเภทสินค้า</th>
+
 
 <?
 include("Connection_inc1.php"); $link = connectToDB();//ติดต่อฐานข้อมูล		   
@@ -185,8 +186,11 @@ include("Connection_inc1.php"); $link = connectToDB();//ติดต่อฐา
 	   <tr>
        <th colspan="10" align="center"><input class="btn btn-warning"  class="nav-link text-uppercase text-expanded" type="submit" name="button" id="button" value="บันทึก" /></th>
       </tr>
-    </tbody>
-  </table></form>
+   
+      </table></form>
+            </div>
+    </section>
+
   
   
 
