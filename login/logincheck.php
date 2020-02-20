@@ -23,7 +23,7 @@ session_start();
                     //   }
                       print_r($_SESSION["id_cus"].$_SESSION["name_cus"].$_SESSION["type"]);
                       if($row["type"]=="admin"){
-                        Header("Location:../main.php");
+                        Header("Location:../admin.php");
                       }else{
                         Header("Location:../index.php");
                       }

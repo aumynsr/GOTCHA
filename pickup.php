@@ -3,18 +3,27 @@ session_start();
 
 ///////////หาค่า max ของ id
 
-$hostdb = 'localhost';   // MySQl host
-$userdb = 'root';    // MySQL username
-$passdb = '12345678';    // MySQL password
-$namedb = 'gotcha';   // MySQL database name
-mysql_connect($hostdb, $userdb, $passdb);
-mysql_select_db($namedb);
-mysql_set_charset("utf8");
-$attribute = $_POST['attribute'];
-$keyword = $_POST['keyword'];
+// $hostdb = 'localhost';   // MySQl host
+// $userdb = 'root';    // MySQL username
+// $passdb = '12345678';    // MySQL password
+// $namedb = 'gotcha';   // MySQL database name
+// mysql_connect($hostdb, $userdb, $passdb);
+// mysql_select_db($namedb);
+// mysql_set_charset("utf8");
+// $attribute = $_POST['attribute'];
+// $keyword = $_POST['keyword'];
 
 ?>
+<!DOCTYPE html>
+<html lang="zxx">
 
+<?php include("h.php"); 
+    include("connect.php");
+    
+?>
+
+<body>
+<?php include("header.php"); ?>
 <html lang="en">
 
 <head>
@@ -200,114 +209,126 @@ $keyword = $_POST['keyword'];
                 </div>
               </div>
             </div>
-                       <!-- //shopping cart ends here -->
+            <!-- //shopping cart ends here -->
         </div>
         </div>
         </div>
         </nav>
 
-<body>
-  <!-- //shopping cart ends here -->
-  </div>
-        </div>
-        </div>
-        </nav>
-        <!-- //top nav -->
-        <!-- bottom nav -->
-        <nav class="navbar navbar-expand-lg navbar-light justify-content-center">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto text-center">           
-              <li class="nav-item">
-                <a class="nav-link" href="in_product.php">
-                  <font size="2">ข้อมูลสินค้า</font>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.php">
-                  <font size="2">ข้อมูลประเภทสินค้า</font>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="place.php">
-                  <font size="2">สั่งซื้อสินค้าเข้าร้าน</font>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="pickup.php">
-                  <font size="2">รับสินค้าเข้าคลัง</font>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="checkpay.php">
-                  <font size="2">ตรวจสอบการชำระเงิน</font>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="checklogis.php">
-                  <font size="2">ยืนยันการจัดส่ง</font>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.php">
-                  <font size="2">ออกรายงาน</font>
-                </a>
-              </li>
-
-            </ul>
+        <body>
+          <!-- //shopping cart ends here -->
           </div>
-        </nav>
-        <!-- //bottom nav -->
-        </div>
-        <!-- //header container -->
+          </div>
+          </div>
+          </nav>
+          <!-- //top nav -->
+          <!-- bottom nav -->
+          <nav class="navbar navbar-expand-lg navbar-light justify-content-center">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mx-auto text-center">
+                <li class="nav-item">
+                  <a class="nav-link" href="in_product.php">
+                    <font size="2">ข้อมูลสินค้า</font>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.php">
+                    <font size="2">ข้อมูลประเภทสินค้า</font>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="place.php">
+                    <font size="2">สั่งซื้อสินค้าเข้าร้าน</font>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="pickup.php">
+                    <font size="2">รับสินค้าเข้าคลัง</font>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="checkpay.php">
+                    <font size="2">ตรวจสอบการชำระเงิน</font>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="checklogis.php">
+                    <font size="2">ยืนยันการจัดส่ง</font>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.php">
+                    <font size="2">ออกรายงาน</font>
+                  </a>
+                </li>
+
+              </ul>
+            </div>
+          </nav>
+          <!-- //bottom nav -->
+          </div>
+          <!-- //header container -->
       </header>
       <!-- //header -->
 
-<form id="form1" name="form1" method="post" action="warehouse_updateorder.php">
-  <h1>ใบรับสินค้าเข้าคลัง  </h1>
-  <table width="89%" border="0">
-    <tr>
-      <td width="24%">รหัสผู้จัดจำหน่าย 
-        <label for="textfield2"></label>
-      </td>
-      <td width="76%"><label for="WHOrderID"></label>
-      <input name="WHOrderID" type="text" id="WHOrderID" style="background:#CCC" value="<?=$WHOrderID?>" readonly="readonly" /></td>
-    </tr>
-    <tr>
-      <td>รหัสใบสั่งซื้อ </td>
-      <td><input type="text" value="<?=$dateNow?>" name="WHOrderDate" id="WHOrderDate" /></td>
-    </tr>
-    <tr>
-      <td>วันที่รับสินค้าเข้า
-    </td>
-      <td><label for="update"></label>
-<select name="PO" id="PO" onchange="MM_jumpMenu('parent',this,0)" <?=$_GET['choice']?> >
-<option value="0" >กรุณาเลือก ใบสั่งซื้อ</option>
+      <form id="form1" name="form1" method="post" action="warehouse_updateorder.php">
+        <h1>ใบรับสินค้าเข้าคลัง </h1>
+        <table width="89%" border="0">
+          <tr>
+            <td width="24%">รหัสผู้จัดจำหน่าย
+              <label for="textfield2"></label>
+            </td>
+            <td width="76%"><label for="WHOrderID"></label>
+              <!-- <input name="WHOrderID" type="text" id="WHOrderID" style="background:#CCC" value="<?= $WHOrderID ?>" readonly="readonly" /></td> -->
+          </tr>
+          <td width="24%">ชื่อผู้จัดจำหน่าย
+            <label for="textfield2"></label>
+          </td>
 
-   
-    <tr>
-      <td colspan="2" align="center"><table width="100%" border="1" cellspacing="0" cellpadding="0">
-        <tr bgcolor="#CCCCCC" align="center">
-          <td><h4>รหัสสินค้า</h4></td>
-          <td><h4>รายการสินค้า</h4></td>
-          <td><h4>จำนวนที่รับสินค้า </h4></td>
-          <td><h4>ที่เก็บ </h4></td>
-          <td>ราคา</td>
-          
-         
-		
-        </tr>
-      </table></td>
-    </tr>
-    <tr>
-      <td colspan="2" align="center"><label for="select2"></label><input type="reset" name="Reset" id="button" value="Reset" />
-      <input type="submit" name="button2" id="button2" value="Submit" /></td>
-    </tr>
-  </table>
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
-  <p>&nbsp;</p>
-</form>
- </body>
+
+          <tr>
+            <td>รหัสใบสั่งซื้อ </td>
+            <td><input type="text" value="<?= $dateNow ?>" name="WHOrderDate" id="WHOrderDate" /></td>
+          </tr>
+          <tr>
+            <td>วันที่รับสินค้าเข้า
+            </td>
+            <td><label for="update"></label>
+              <select name="PO" id="PO" onchange="MM_jumpMenu('parent',this,0)" <?= $_GET['choice'] ?>>
+                <!-- <option value="0" >กรุณาเลือก ใบสั่งซื้อ</option> -->
+
+
+          <tr>
+            <td colspan="2" align="center">
+              <table width="100%" border="1" cellspacing="0" cellpadding="0">
+                <tr bgcolor="#CCCCCC" align="center">
+                  <td>
+                    <h4>รหัสสินค้า</h4>
+                  </td>
+                  <td>
+                    <h4>รายการสินค้า</h4>
+                  </td>
+                  <td>
+                    <h4>จำนวนที่รับสินค้า </h4>
+                  </td>
+                  <td>ราคา</td>
+
+
+
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2" align="center"><label for="select2"></label><input type="reset" name="Reset" id="button" value="Reset" />
+              <input type="submit" name="button2" id="button2" value="Submit" /></td>
+          </tr>
+        </table>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+      </form>
+    </body>

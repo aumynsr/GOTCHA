@@ -82,7 +82,7 @@ if (isset($_SESSION["id_cus"])) {
           <img class="img-fluid" src="images/home/g1.jpg" alt="">
           <div class="overlay">
             <h5>Wallet</h5>
-            <a class="info" href="shopwallet.php">Shop Now</a>
+            <a class="info" href="index.php?category=5">Shop Now</a>
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@ if (isset($_SESSION["id_cus"])) {
           <img class="img-fluid" src="images/home/g2.jpg" alt="">
           <div class="overlay">
             <h5>Card pocket</h5>
-            <a class="info" href="shopcard.php">Shop Now</a>
+            <a class="info" href="index.php?category=4">Shop Now</a>
           </div>
         </div>
       </div>
@@ -100,7 +100,7 @@ if (isset($_SESSION["id_cus"])) {
           <img class="img-fluid" src="images/home/g3.jpg" alt="">
           <div class="overlay">
             <h5>Small Shoulder Bags</h5>
-            <a class="info" href="shouderbag.php">Shop Now</a>
+            <a class="info" href="index.php?category=2">Shop Now</a>
           </div>
         </div>
       </div>
