@@ -254,8 +254,8 @@ session_start();
       </header>
       <!-- //header -->
 
-      <form id="form1" name="form1" method="post" action="warehouse_updateorder.php">
-        <select id="cars">
+      <form id="form1" name="form1" method="post" action="purchase_order.php">
+        <select id="cars" name="dealer">
           <option value="1">vatinee</option>
         </select>
         <table class="table table-striped table-bordered">
@@ -273,38 +273,39 @@ session_start();
             while ($product = mysqli_fetch_array($result)) : ?>
               <tr>
                 <td>
-
-                  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+                  <input type="checkbox" onclick='checkProd(event, <?=$product["id_pro"] ?>)' id="check_prod<?=$product["id_pro"] ?>" name="check_prod[]" value="<?=$product["id_pro"] ?>">
                 </td>
-
-
-
-
                 <td class="product-id">
-                  <h2 class="h5 text-black"><?= $product["name_pro"] ?></h2>
+                  <h2 class="h5 text-black"><?=$product["name_pro"] ?></h2>
                   <input type="hidden" value="<?= $product["name_pro"] ?>" id="name_pro" />
                 </td>
-
                 <td class="product-id">
-
-                  <input type="number" value="0" min="0" id="cart_total" />
+                  <input type="number" id="num-<?=$product["id_pro"]?>" name="prod_query[]" value="0" min="0" id="cart_total" disabled />
                 </td>
-
-
-
-
               </tr>
             <? endwhile; ?>
             <tr>
               <td colspan="8" style="text-align: right;">
 
-                <a href="index.php" type="button" class="btn btn-danger btn-lg">ย้อนกลับ</a>
+                <button href="index.php" type="submit" class="btn btn-danger btn-lg">ย้อนกลับ</a>
                 <a href="payment.php" class="btn btn-primary btn-lg">สั่งซื้อสินค้า<a>
               </td>
             </tr>
-
-
           </tbody>
         </table>
       </form>
+
+      <script>
+        function checkProd(e, id){
+          let isCheck = jQuery("#check_prod"+id).is(':checked')
+          if(isCheck){
+  
+            $("#num-"+id).removeAttr("disabled")
+          } else {
+            $("#num-"+id).attr("disabled", true)
+          }
+
+          //console.log(e, id);
+        }
+      </script>
     </body>
