@@ -62,8 +62,7 @@ session_start(); ?>
       $sql .= " password_cus= '$password_cus'";
       $sql .= " where";
       $sql .= " id_cus = " . $_SESSION["id_cus"];
-      print_r($sql);
-      $dbcon->query($sql);
+            $dbcon->query($sql);
     }
     ?>
 
