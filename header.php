@@ -1,3 +1,35 @@
+<style>
+  .counter{
+    position: absolute;
+    top:24px;
+    right: 2px;
+    background-color: orange;
+    width:24px;
+    height:24px;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+  }
+
+  .icart{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+  }
+
+  .icart-container{
+    position: relative;
+    width: 48px;
+    height: 48px;
+    
+  }
+</style>
 <header>
     <div class="container">
       <!-- top nav -->
@@ -10,12 +42,18 @@
         <!-- //logo -->
         <div class="w3ls_right_nav ml-auto d-flex">
           <!-- search form -->
-          
+          <a href="checkout.php">
+          <div class="icart-container">
+            <img class="icart" src="images/cart.png" width="24px" />
+            <div class="counter" id="counter">9+</div>
+        </div>
+          </a>
           <div class="nav-icon d-flex">
-
+          
             <a class="portfolio-link" data-toggle="modal" href="">
               <div class="portfolio-hover">              
 </div>
+
         <?php if (isset($_SESSION["id_cus"])): ?>
               <a href="login/logout.php" class="btn btn-outline-secondary  ml-3 my-sm-0">Logout</a>
               <a href="detail_user.php" >  <?=$_SESSION["name_cus"]?> </a>
@@ -83,3 +121,20 @@
     </div>
     <!-- //header container -->
   </header>
+
+  <script>
+    function getCountCart(){
+      console.log('run')
+      jQuery.get('http://localhost/GOTCHA/getCountCart.php?id_cus='+<?=$_SESSION["id_cus"]?>).then(function(res){
+        
+        if(res > 9){
+          jQuery('#counter').html('9+');
+        }else{
+          jQuery('#counter').html(res);
+        }
+      })
+    }
+
+    getCountCart();
+    
+  </script>
