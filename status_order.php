@@ -45,7 +45,12 @@ include("connect.php");
                 address <?=$order["address"] ?>
             </div>
             <div class="col">
-                Status  <?=$order["o_status"] ?>
+                Status:  <?=$order["o_status"] ?><br />
+                <? if($order["o_status"] == 'cancel'): ?>
+                    Remark:  <?=$order["remark"] ?><br />
+                <? elseif($order["o_status"] == 'delivery'): ?>
+                    EMS TRACK No. <?=$order["ems"] ?> 
+                <? endif; ?>
             </div>
         </div>
         <div class="row">
