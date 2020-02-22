@@ -306,6 +306,7 @@ if (isset($_SESSION["id_cus"])) {
             showConfirmlButton: true,
             confirmButtonText: "ไปที่ตะกร้า"
           }).then(function(res) {
+            getCountCart();
             if (res.value)
               window.location.assign("http://localhost/gotcha/checkout.php")
           })
