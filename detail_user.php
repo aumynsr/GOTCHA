@@ -1,3 +1,5 @@
+<? session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -16,9 +18,9 @@
         <div class="container">
             <h2>USER!</h2>
             <div class="btn-group">
-                <button type="button" class="btn btn-primary">สถานะสินค้า</button>
+                <a href="status_order.php" type="status"  class="btn btn-primary">สถานะสินค้า</a>
 
-                <button type="button" class="btn btn-primary">เปลี่ยนรหัสผ่าน</button>
+                <a href="edit_user.php" type="edit"  class="btn btn-primary">เปลี่ยนรหัสผ่าน</a>
             </div>
         </div>
 

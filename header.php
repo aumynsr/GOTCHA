@@ -18,7 +18,7 @@
 </div>
         <?php if (isset($_SESSION["id_cus"])): ?>
               <a href="login/logout.php" class="btn btn-outline-secondary  ml-3 my-sm-0">Logout</a>
-              <a href="edit_user.php" >  <?=$_SESSION["name_cus"]?> </a>
+              <a href="detail_user.php" >  <?=$_SESSION["name_cus"]?> </a>
         <?php else: ?>
               <a href="login/login.php" class="btn btn-outline-secondary  ml-3 my-sm-0">Login</a>
           </div>
