@@ -1,7 +1,18 @@
 <?
 session_start();
 
-include("../connect.php")
+///////////หาค่า max ของ id
+
+$hostdb = 'localhost';   // MySQl host
+$userdb = 'root';    // MySQL username
+$passdb = '12345678';    // MySQL password
+$namedb = 'gotcha';   // MySQL database name
+mysql_connect($hostdb, $userdb, $passdb);
+mysql_select_db($namedb);
+mysql_set_charset("utf8");
+$attribute = $_POST['attribute'];
+$keyword = $_POST['keyword'];
+
 ?>
 
 <html lang="en">
@@ -14,6 +25,7 @@ include("../admin_head.php")
   <?
   include("../admin_header.php")
   ?>
+
 
       <button button type="button" class="btn btn-danger" class="nav-link text-uppercase text-expanded" data-toggle="collapse" data-target="#demo"><font size="2">เพิ่มข้อมูลใหม่</button></font>
       <div id="demo" class="collapse">
