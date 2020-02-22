@@ -51,5 +51,5 @@ while ($_cart = mysqli_fetch_array($cart)){
     $db->query("update product set total=".$descrete." where id_pro=".$_cart["id_pro"]);
 }
 ?>
-
+ <a href="index.php" class="btn btn-outline-secondary  ml-3 my-sm-0">Return</a>
 ยืนยันคำสั่งซื้อ
