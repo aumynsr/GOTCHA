@@ -93,9 +93,8 @@ if(isset($_SESSION["id_cus"])){
 
 
                             <td class="product-id">
-                                <a class="btn btn-danger btn-lg" href="shop.html" role="button">
-                                    <span class="glyphicon glyphicon-trash"></span>
-                                    ลบทิ้ง</a> </td>
+                                <button type="button" class="btn btn-danger btn-lg" onclick="removeCart(<?=$product['id_pro']?>, <?=$_SESSION['id_cus'] ?>)">ลบทิ้ง</button>
+                                </td>
 
 
 
@@ -243,6 +242,18 @@ if(isset($_SESSION["id_cus"])){
                 $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
             });
         });
+
+        function removeCart(id_pro, id_cus){
+            console.log(id_pro, id_cus)
+            //console.log($)
+            jQuery.post('http://localhost/GOTCHA/checkoutdelete.php', {
+                id_pro:id_pro,
+                id_cus:id_cus
+            }, function(data, status){
+                console.log(data, status)
+                window.location.reload();
+            })
+        }
     </script>
     <!-- //smooth dropdown -->
     <!-- script for password match -->
