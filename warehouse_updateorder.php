@@ -21,5 +21,5 @@
       $dbcon->query("update purchase_order set status='success' where id_po=".$_POST['id_po']);
   }
 ?>
-
+ <a href="admin.php" class="btn btn-outline-secondary  ml-3 my-sm-0">Return</a>
 รับสินค้าสำเร็จ
