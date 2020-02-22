@@ -85,6 +85,7 @@
                                                 </thead>
                                                 <tbody>
                                                     <? $sum = 0;
+                                                    $result = $dbcon->query("SELECT * FROM cart INNER JOIN product on product.id_pro = cart.id_pro where id_cus=".$_SESSION['id_cus'])
                                                     ?>
                                                     <? while ($product = mysqli_fetch_array($result)) : ?>
                                                         <tr>
