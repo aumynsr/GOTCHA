@@ -57,6 +57,6 @@ include('connect.php');
     $mpdf->showWatermarkImage = true;
     $mpdf->WriteHTML($html);
     
-    $mpdf->Output('filename.pdf','I');
+    $mpdf->Output('GOTCHA_PO.pdf','I');
     
 ?>
