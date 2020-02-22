@@ -190,7 +190,8 @@ include("admin_head.php")
             console.log(order_id, status)
             $.post("update_confirm_order.php", {
                 id_order: order_id,
-                status: status
+                status: status,
+                ems: jQuery("#ems").val()
             }).then(function(res) {
                 $("#o_status").html(res);
                 Swal.fire({
