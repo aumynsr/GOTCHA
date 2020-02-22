@@ -14,10 +14,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <?php include("h.php"); ?>
 
 <body>
-<?php include("header.php"); ?>
-        <!-- //header container -->
-	<!-- //inner banner -->
-   <!-- breadcrumbs -->
+    <?php include("header.php"); ?>
+    <!-- //header container -->
+    <!-- //inner banner -->
+    <!-- breadcrumbs -->
     <!--<nav aria-label="breadcrumb">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -26,16 +26,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <li class="breadcrumb-item active" aria-current="page">Contact Us</li>
         </ol>
     </nav> -->
-    <!-- //breadcrumbs --> 
+    <!-- //breadcrumbs -->
     <!-- contact -->
     <section class="wthree-row pt-3 pb-sm-5 w3-contact">
         <div class="container py-sm-5 pb-5">
             <h5 class="head_agileinfo text-center text-capitalize pb-5">
                 <span>C</span>ontact us</h5>
             <div class="row contact-form pt-lg-5">
-               
+
                 <!-- contact details -->
                 <div class="col-lg-6 contact-bottom pl-5 mt-lg-0 mt-5">
+                    <div class="address">
+                        <h5 class="pb-3 text-capitalize">Account number</h5>
+                        <p>
+
+                            Kasikorn Account 020241235544</p>
+                    </div>
+                    <br>
                     <!-- contact details grid1-->
                     <div class="address">
                         <h5 class="pb-3 text-capitalize">Address</h5>
@@ -66,12 +73,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     </div>
                     <br>
                     <div class="address mt-md-0 mt-3">
-                    <h5 class="pb-3 text-capitalize">line</h5>
-                    <a href="https://lin.ee/aewy37e"><img height="36" border="0" src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png"></a>
+                        <h5 class="pb-3 text-capitalize">line</h5>
+                        <a href="https://lin.ee/aewy37e"><img height="36" border="0" src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png"></a>
                     </div>
 
-                    
-                    
+
+
                     <!-- //contact details row ends here -->
                 </div>
             </div>
@@ -94,110 +101,110 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 <!-- footer-top -->
                 <div class="container-fluid">
                     <div class="row  footer-v2grids w3-agileits">
-                        
-						
-						 <footer class="site-footer custom-border-top">
-      <div class="container">
-        <div class="row">
-         <div class="col-lg-2 col-sm-6 footer-v2grid">
-                            <h4>Support</h4>
-                            <ul>
 
-                                <li>
-                                    <a href="payment.html">Payment</a>
-                                </li>
-                                <li>
-                                    <a href="#">Shipping</a>
-                                </li>
-                                <li>
-                                    <a href="#">Cancellation & Returns</a>
-                                </li>
-                                <li>
-                                    <a href="faq.html">FAQ</a>
-                                </li>
-                            </ul>
-                        </div>
-          <div class="col-lg-5 ml-auto mb-5 mb-lg-0">
-            <div class="row">
-              <div class="col-md-12">
-                <h3 class="footer-heading mb-4">Follow Us</h3>
-              </div>
-             
-                
-                        <ul class="social-iconsv2 agileinfo">
-                            <li>
-                                <a href="https://web.facebook.com/gotchaofficials/">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://twitter.com/?lang=th">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="https://www.youtube.com/">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://www.instagram.com/gotcha_official/">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://mail.google.com/">
-                                    <i class="fab fa-google-plus-g"></i>
-                                </a>
-                            </li>
-                        </ul>
-            
-			  
-              
-            </div>
-          </div>
-          
-          <div class="col-md-6 col-lg-3">
-            <div class="block-5 mb-5">
-              <h3 class="footer-heading mb-4">Address</h3>
-              <ul class="list-unstyled">
-                <li class="address">Rajamangala University of Technology Tawan-Ok : Chakrabongse Bhuvanarth Campus
+                        <footer class="site-footer custom-border-top">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-6 footer-v2grid">
+                                        <h4>Support</h4>
+                                        <ul>
 
-122 Vibhavadi Rangsit Road, Din Daeng Subdistrict, Din Daeng District, Bangkok 10400</li>	
-<br>				
-                <li class="phone"><a href="tel://25932358">02-593-2358</a></li>
-                <li class="email">gotchaofficial@gmail.com</li>
-              </ul>
-            </div>
+                                            <li>
+                                                <a href="payment.html">Payment</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Shipping</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Cancellation & Returns</a>
+                                            </li>
+                                            <li>
+                                                <a href="faq.html">FAQ</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-5 ml-auto mb-5 mb-lg-0">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <h3 class="footer-heading mb-4">Follow Us</h3>
+                                            </div>
 
-            
-          </div>
-        </div>
-		 <br><B>ADMINISTRATOR</B>
-                <br>YANISA,VATINEE,PATTARAT
-        
-      </div>
-  
-				
+
+                                            <ul class="social-iconsv2 agileinfo">
+                                                <li>
+                                                    <a href="https://web.facebook.com/gotchaofficials/">
+                                                        <i class="fab fa-facebook-f"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://twitter.com/?lang=th">
+                                                        <i class="fab fa-twitter"></i>
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="https://www.youtube.com/">
+                                                        <i class="fab fa-youtube"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://www.instagram.com/gotcha_official/">
+                                                        <i class="fab fa-linkedin-in"></i>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://mail.google.com/">
+                                                        <i class="fab fa-google-plus-g"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 col-lg-3">
+                                        <div class="block-5 mb-5">
+                                            <h3 class="footer-heading mb-4">Address</h3>
+                                            <ul class="list-unstyled">
+                                                <li class="address">Rajamangala University of Technology Tawan-Ok : Chakrabongse Bhuvanarth Campus
+
+                                                    122 Vibhavadi Rangsit Road, Din Daeng Subdistrict, Din Daeng District, Bangkok 10400</li>
+                                                <br>
+                                                <li class="phone"><a href="tel://25932358">02-593-2358</a></li>
+                                                <li class="email">gotchaofficial@gmail.com</li>
+                                            </ul>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <br><B>ADMINISTRATOR</B>
+                                <br>YANISA,VATINEE,PATTARAT
+
+                            </div>
+
+
+                    </div>
                 </div>
             </div>
-        </div>
-		
+
     </footer>
     <!-- //footer -->
     <!-- sign up Modal -->
-    
+
     <!-- signin Modal -->
     <!-- js -->
     <script src="js/jquery-2.2.3.min.js"></script>
     <!-- //js -->
     <!-- smooth dropdown -->
     <script>
-        $(document).ready(function () {
-            $('ul li.dropdown').hover(function () {
+        $(document).ready(function() {
+            $('ul li.dropdown').hover(function() {
                 $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(200);
-            }, function () {
+            }, function() {
                 $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(200);
             });
         });
@@ -205,7 +212,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- //smooth dropdown -->
     <!-- script for password match -->
     <script>
-        window.onload = function () {
+        window.onload = function() {
             document.getElementById("password1").onchange = validatePassword;
             document.getElementById("password2").onchange = validatePassword;
         }
@@ -226,7 +233,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script>
         hub.render();
 
-        hub.cart.on('new_checkout', function (evt) {
+        hub.cart.on('new_checkout', function(evt) {
             var items, len, i;
 
             if (this.subtotal() > 0) {
@@ -241,8 +248,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <script src="js/move-top.js"></script>
     <script src="js/easing.js"></script>
     <script>
-        jQuery(document).ready(function ($) {
-            $(".scroll").click(function (event) {
+        jQuery(document).ready(function($) {
+            $(".scroll").click(function(event) {
                 event.preventDefault();
 
                 $('html,body').animate({
@@ -254,7 +261,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
     <!-- //end-smooth-scrolling -->
     <!-- smooth-scrolling-of-move-up -->
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             /*
             var defaults = {
                 containerID: 'toTop', // fading element id
