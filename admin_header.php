@@ -87,9 +87,7 @@
                     <a class="dropdown-item" href="http://localhost/GOTCHA/in_cate/in_cate.php">
                       <font size="3">ข้อมูลประเภทสินค้า</font>
                     </a>
-                    <a class="dropdown-item" href="http://localhost/GOTCHA/in_cus/in_cus.php">
-                      <font size="3">ข้อมูลลูกค้า</font>
-                    </a>
+                    
                     <a class="dropdown-item" href="http://localhost/GOTCHA/in_add/in_add.php">
                       <font size="3">ข้อมูลผู้ดูแลระบบ</font>
                     </a>
