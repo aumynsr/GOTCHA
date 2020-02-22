@@ -53,8 +53,8 @@ include("admin_head.php")
           <tr>
             <td colspan="8" style="text-align: right;">
 
-              <button href="index.php" type="submit" class="btn btn-danger btn-lg">ย้อนกลับ</a>
-                <a href="payment.php" class="btn btn-primary btn-lg">สั่งซื้อสินค้า<a>
+              <button  type="submit" class="btn btn-primary btn-lg">สั่งซื้อสินค้า</button>
+              <a href="index.php" class="btn btn-danger btn-lg">ย้อนกลับ<a>
             </td>
           </tr>
         </tbody>
