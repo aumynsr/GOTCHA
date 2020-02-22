@@ -3,7 +3,7 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
-
+<? session_start(); ?>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -63,11 +63,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <p>
                             <a href="mailto:info@example.com">vatineemahisaya@gmail.com</a>
                         </p>
-                     
                     </div>
+                    <br>
+                    <div class="address mt-md-0 mt-3">
+                    <h5 class="pb-3 text-capitalize">line</h5>
+                    <a href="https://lin.ee/aewy37e"><img height="36" border="0" src="https://scdn.line-apps.com/n/line_add_friends/btn/th.png"></a>
+                    </div>
+
                     
-
-
                     
                     <!-- //contact details row ends here -->
                 </div>

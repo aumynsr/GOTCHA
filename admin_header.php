@@ -24,7 +24,9 @@
 
           <?php if (isset($_SESSION["id_cus"])) : ?>
             <a href="login/logout.php" class="btn btn-outline-secondary  ml-3 my-sm-0">Logout</a>
-          <?php else : ?>
+         
+            <a href="admin.php" >  <?=$_SESSION["name_cus"]?> </a>
+        <?php else: ?>
             <a href="login/login.php" class="btn btn-outline-secondary  ml-3 my-sm-0">Login</a>
         </div>
       <?php endif; ?>
