@@ -29,13 +29,14 @@ include("admin_head.php")
           <tr>
             <th> </th>
             <th>ชื่อสินค้า</th>
+            <th>จำนวนที่เหลือ</th>
             <th>จำนวนที่ซื้อ</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
         <tbody>
           <?
-          $result = $dbcon->query('SELECT * FROM product ');
+          $result = $dbcon->query('SELECT * FROM product order by total asc');
           while ($product = mysqli_fetch_array($result)) : ?>
             <tr>
               <td>
@@ -44,6 +45,13 @@ include("admin_head.php")
               <td class="product-id">
                 <h2 class="h5 text-black"><?= $product["name_pro"] ?></h2>
                 <input type="hidden" value="<?= $product["name_pro"] ?>" id="name_pro" />
+              </td>
+              <td class="product-id">
+                <? if($product["total"] <= 10) : ?>
+                  <h2 class="h5 text-red" style="color:red"><?= $product["total"] ?></h2>
+                <? else: ?>
+                  <h2 class="h5 text-black"><?= $product["total"] ?></h2>
+                <? endif; ?>
               </td>
               <td class="product-id">
                 <input type="number" id="num-<?= $product["id_pro"] ?>" name="prod_query[]" value="0" min="0" id="cart_total" disabled />
