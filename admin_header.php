@@ -101,7 +101,7 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="place.php">
+            <a class="nav-link" href="purchase.php">
               <font size="3"><B>สั่งซื้อสินค้าเข้าร้าน</font></B>
             </a>
           </li>
