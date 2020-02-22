@@ -19,11 +19,19 @@ include("admin_head.php")
 
 
 
-    <form id="form1" name="form1" method="post" class="form-control" action="purchase_order.php">
+    <form id="form1" name="form1" method="post" action="purchase_order.php">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="form-group">
+              <select class="form-control form-control-lg mb-5" style="height: 50px;" id="cars" name="dealer">
+                <option value="1">vatinee</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <select class="form-control mb-5" style="height: 50px;" id="cars" name="dealer">
-        <option value="1">vatinee</option>
-      </select>
       <table class="table table-striped table-bordered">
         <thead>
           <tr>
@@ -47,9 +55,9 @@ include("admin_head.php")
                 <input type="hidden" value="<?= $product["name_pro"] ?>" id="name_pro" />
               </td>
               <td class="product-id">
-                <? if($product["total"] <= 10) : ?>
+                <? if ($product["total"] <= 10) : ?>
                   <h2 class="h5 text-red" style="color:red"><?= $product["total"] ?></h2>
-                <? else: ?>
+                <? else : ?>
                   <h2 class="h5 text-black"><?= $product["total"] ?></h2>
                 <? endif; ?>
               </td>
@@ -61,7 +69,7 @@ include("admin_head.php")
           <tr>
             <td colspan="8" style="text-align: right;">
 
-              <button  type="submit" class="btn btn-primary btn-lg">สั่งซื้อสินค้า</button>
+              <button type="submit" class="btn btn-primary btn-lg">สั่งซื้อสินค้า</button>
               <a href="index.php" class="btn btn-danger btn-lg">ย้อนกลับ<a>
             </td>
           </tr>
