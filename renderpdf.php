@@ -8,6 +8,7 @@ include('connect.php');
     $id_po = $_GET['id_po'];
     $result = $dbcon->query("select * from purchase_order inner join dealer on dealer.id_dealer = purchase_order.id_dealer inner join users on purchase_order.id_user = users.id_cus where purchase_order.id_po = $id_po");
     $po = mysqli_fetch_assoc($result);
+    
 
     $html = "";
     $html .= "<p style='width:100%; align:center'><h3>Purchase Order</h3></p>";
