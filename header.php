@@ -10,24 +10,7 @@
         <!-- //logo -->
         <div class="w3ls_right_nav ml-auto d-flex">
           <!-- search form -->
-          <form class="nav-search form-inline my-0 form-control" action="#" method="post">
-            <select class="form-control input-lg" name="category">
-              <option value="all">Search our store</option>
-              <optgroup label="Bags">
-                <option value="Bagket Bags">Bagket Bags</option>
-                <option value="Shoulder Bags">Shoulder Bags</option>
-                <option value="Card Pocket">Card Pocket</option>
-                <option value="Wallet Bags">Wallet Bags</option>
-                <option value="Clutch Bags">Clutch Bags</option>
-
-
-              </optgroup>
-
-
-            </select>
-            <input class="btn btn-outline-secondary  ml-3 my-sm-0" type="submit" value="Search">
-          </form>
-          <!-- search form -->
+          
           <div class="nav-icon d-flex">
 
             <a class="portfolio-link" data-toggle="modal" href="">
