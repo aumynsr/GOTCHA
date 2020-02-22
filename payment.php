@@ -57,7 +57,7 @@ $result = $db->query("SELECT * FROM cart INNER JOIN product ON product.id_pro = 
             <nav class="top_nav d-flex pt-3 pb-1">
                 <!-- logo -->
                 <h1>
-                    <a class="navbar-brand" href="index.html">GOTCHA
+                    <a class="navbar-brand" href="index.php">GOTCHA
                     </a>
                 </h1>
                 <!-- //logo -->

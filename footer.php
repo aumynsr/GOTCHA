@@ -23,9 +23,7 @@
                         <li>
                           <a href="#">Cancellation & Returns</a>
                         </li>
-                        <li>
-                          <a href="faq.html">FAQ</a>
-                        </li>
+                   
                       </ul>
                     </div>
                     <div class="col-lg-5 ml-auto mb-5 mb-lg-0">

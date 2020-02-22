@@ -33,28 +33,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <h5 class="head_agileinfo text-center text-capitalize pb-5">
                 <span>C</span>ontact us</h5>
             <div class="row contact-form pt-lg-5">
-                <div class="col-lg-6 wthree-form-left">
-                    <!-- contact form grid -->
-                    <div class="contact-top1">
-                        <h5 class="text-dark mb-4 text-capitalize">send us a note</h5>
-                        <form action="#" method="get" class="f-color">
-                            <div class="form-group">
-                                <label for="contactusername">Name</label>
-                                <input type="text" class="form-control" id="contactusername" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contactemail">Email</label>
-                                <input type="email" class="form-control" id="contactemail" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contactcomment">Your Message</label>
-                                <textarea class="form-control" rows="5" id="contactcomment" required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-info btn-block">Submit</button>
-                        </form>
-                    </div>
-                    <!--  //contact form grid ends here -->
-                </div>
+               
                 <!-- contact details -->
                 <div class="col-lg-6 contact-bottom pl-5 mt-lg-0 mt-5">
                     <!-- contact details grid1-->
@@ -62,29 +41,34 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <h5 class="pb-3 text-capitalize">Address</h5>
                         <address>
                             <p class="c-txt">Rajamangala University of Technology Tawan-Ok : Chakrabongse Bhuvanarth Campus</p>
-                            <p class="c-txt">122 Vibhavadi Rangsit Road, Din Daeng Subdistrict, Din Daeng District, Bangkok 10400</p>
+                            <p class="c-txt">122 Vibhavadi Rangsit Road, Din Daeng Subdistrict, Bangkok 10400</p>
                         </address>
                     </div>
                     <!-- contact details grid2-->
                     <div class="address my-5">
                         <h5 class="pb-3 text-capitalize">phone</h5>
                         <p>
-                            +10 234 5678</p>
+                            02-593-2358</p>
                         <p>
-                            +11 222 333</p>
+                            089-983-7364</p>
                         <p>
-                            +12 222 333</p>
+                            065-934-6482</p>
                     </div>
                     <!-- contact details grid3 -->
                     <div class="address mt-md-0 mt-3">
                         <h5 class="pb-3 text-capitalize">Email</h5>
                         <p>
-                            <a href="mailto:info@example.com">mail@communal.com</a>
+                            <a href="mailto:info@example.com">gotchaofficial@gmail.com</a>
                         </p>
                         <p>
-                            <a href="mailto:info@example.com">mail@communalinfo.com</a>
+                            <a href="mailto:info@example.com">vatineemahisaya@gmail.com</a>
                         </p>
+                     
                     </div>
+                    
+
+
+                    
                     <!-- //contact details row ends here -->
                 </div>
             </div>
