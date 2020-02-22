@@ -110,7 +110,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         </div>
         <div class="gallery row no-gutters pb-5">
             <div class="col-lg-2 col-sm-4 col-6 gallery-item">
-                <img src="images/home/g7.jpg" class="img-fluid" alt="" />
+                <img src="images/home/g14.jpg" class="img-fluid" alt="" />
                 <div class="gallery-item-info">
                     <ul>
                         <li class="gallery-item-likes">
@@ -121,7 +121,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
             </div>
             <div class="col-lg-2 col-sm-4 col-6 gallery-item">
-                <img src="images/home/g8.jpg" class="img-fluid" alt="" />
+                <img src="images/home/g15.jpg" class="img-fluid" alt="" />
                 <div class="gallery-item-info">
                     <ul>
                         <li class="gallery-item-likes">

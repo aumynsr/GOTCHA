@@ -3,12 +3,19 @@
 
 <?php include("h.php");
 include("connect.php");
-
-
+?>
+<?
+include("admin_head.php")
 ?>
 
 <body>
-    <?php include("header.php"); ?>
+
+  <?
+  include("admin_header.php")
+  ?>
+
+<body>
+    
     <!-- sigin and sign up -->
 
     <!-- //header -->
@@ -18,10 +25,7 @@ include("connect.php");
     <!-- breadcrumbs -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="index.php">Home</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">Detail</li>
+            <li class="breadcrumb-item active" aria-current="page"><font size="4"><B>ยืนยันการจัดส่ง</font></B></li>
         </ol>
     </nav>
     <!-- //breadcrumbs -->
@@ -39,7 +43,7 @@ include("connect.php");
         <div class="container">
             <div class="row">
                 <div class="col">
-                    ชื่อผู้สั่ง
+                <font size="3">ชื่อผู้สั่ง</font>
                 </div>
                 <div class="col">
                     <?= $detail["name_cus"] ?>
@@ -47,7 +51,7 @@ include("connect.php");
             </div>
             <div class="row">
                 <div class="col">
-                    ชื่อผู้รับ
+                <font size="3">ชื่อผู้รับ</font>
                 </div>
                 <div class="col">
                     <?= $detail["name_delivery"] ?>
@@ -55,7 +59,7 @@ include("connect.php");
             </div>
             <div class="row">
                 <div class="col">
-                    หลักฐานการโอนเงิน
+                <font size="3">หลักฐานการโอนเงิน</font>
                 </div>
                 <div class="col">
                     <button onclick="check_slip('<?= $detail['slip'] ?>')">คลิกเพื่อดูหลักฐานการโอนเงิน</button>
@@ -63,7 +67,7 @@ include("connect.php");
             </div>
             <div class="row">
                 <div class="col">
-                    ธนาคาร
+                <font size="3">ธนาคาร</font>
                 </div>
                 <div class="col">
                     <?= $detail['bank'] ?>
@@ -71,7 +75,7 @@ include("connect.php");
             </div>
             <div class="row">
                 <div class="col">
-                    สถานที่จัดส่ง
+                <font size="3">สถานที่จัดส่ง</font>
                 </div>
                 <div class="col">
                     <?= $detail["address"] ?>
@@ -79,7 +83,7 @@ include("connect.php");
             </div>
             <div class="row">
                 <div class="col">
-                    วันที่สั่งสินค้า
+                <font size="3">วันที่สั่งสินค้า</font>
                 </div>
                 <div class="col">
                     <?= $detail["createDate"] ?>
@@ -87,7 +91,7 @@ include("connect.php");
             </div>
             <div class="row">
                 <div class="col">
-                    รหัสไปรษณีย์
+                <font size="3">รหัสไปรษณีย์</font>
                 </div>
                 <div class="col">
                     <?= $detail["zip"] ?>
@@ -95,7 +99,7 @@ include("connect.php");
             </div>
             <div class="row mb-3">
                 <div class="col">
-                    สถานะ
+                <font size="3">สถานะ</font>
                 </div>
                 <div class="col" id="o_status">
                     <?= $detail["o_status"];
@@ -105,7 +109,7 @@ include("connect.php");
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th>ชื่นสินค้า</th>
+                        <th>ชื่อสินค้า</th>
                         <th>ราคา</th>
                         <th>จำนวน</th>
                         <th>รวม</th>

@@ -1,4 +1,6 @@
-<header>    
+<header>   
+  <br>
+  <br> 
   <div class="container">
     <!-- top nav -->
     <nav class="top_nav d-flex pt-3 pb-1">
@@ -77,19 +79,19 @@
               <div class="px-0 container">
                 <div class="row">
                   <div class="col-md-10">
-                    <a class="dropdown-item" href="in_product.php">
+                    <a class="dropdown-item" href="http://localhost/GOTCHA/in_product.php">
                       <font size="3">ข้อมูลสินค้า</font>
                     </a>
-                    <a class="dropdown-item" href="in_cate/in_cate.php">
+                    <a class="dropdown-item" href="http://localhost/GOTCHA/in_cate/in_cate.php">
                       <font size="3">ข้อมูลประเภทสินค้า</font>
                     </a>
-                    <a class="dropdown-item" href="in_cus/in_cus.php">
+                    <a class="dropdown-item" href="http://localhost/GOTCHA/in_cus/in_cus.php">
                       <font size="3">ข้อมูลลูกค้า</font>
                     </a>
-                    <a class="dropdown-item" href="in_add/in_add.php">
+                    <a class="dropdown-item" href="http://localhost/GOTCHA/in_add/in_add.php">
                       <font size="3">ข้อมูลผู้ดูแลระบบ</font>
                     </a>
-                    <a class="dropdown-item" href="in_dealer/in_dealer.php">
+                    <a class="dropdown-item" href="http://localhost/GOTCHA/in_dealer/in_dealer.php">
                       <font size="3">ข้อมูลผู้จัดจำหน่าย</font>
                     </a>
                   </div>
@@ -101,27 +103,27 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="purchase.php">
+            <a class="nav-link" href="http://localhost/GOTCHA/purchase.php">
               <font size="3"><B>สั่งซื้อสินค้าเข้าร้าน</font></B>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pickup.php">
+            <a class="nav-link" href="http://localhost/GOTCHA/pickup.php">
               <font size="3"><B>รับสินค้าเข้าคลัง</font></B>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="comfirmorder.php">
+            <a class="nav-link" href="http://localhost/GOTCHA/comfirmorder.php">
               <font size="3"><B>ตรวจสอบการสั่งซื้อ</font></B>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="checklogis.php">
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="http://localhost/GOTCHA/detail_order.php">
               <font size="3"><B>ยืนยันการจัดส่ง</font></B>
             </a>
-          </li>
+          </li> -->
           <li class="nav-item">
-            <a class="nav-link" href="report.php">
+            <a class="nav-link" href="http://localhost/GOTCHA/report.php">
               <font size="3"><B>ออกรายงาน</font></B>
             </a>
           </li>

@@ -1,13 +1,22 @@
-<!DOCTYPE html>
-<html lang="zxx">
+<?
+include("connect.php");
+session_start();
 
-<?php include("h.php"); 
-    include("connect.php");
-    
+?>
+
+<html lang="en">
+<?
+include("admin_head.php")
 ?>
 
 <body>
-<?php include("header.php"); ?>
+
+  <?
+  include("admin_header.php")
+  ?>
+
+<body>
+
         <!-- sigin and sign up -->
        
     <!-- //header -->
@@ -17,10 +26,8 @@
     <!-- breadcrumbs -->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-                <a href="index.php">Home</a>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">comfirm order</li>
+            
+            <li class="breadcrumb-item active" aria-current="page"><font size="4"><B>confirm order</font></B></li>
         </ol>
     </nav>
     <!-- //breadcrumbs -->
