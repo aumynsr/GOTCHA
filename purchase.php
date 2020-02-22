@@ -65,7 +65,6 @@ include("admin_head.php")
       function checkProd(e, id) {
         let isCheck = jQuery("#check_prod" + id).is(':checked')
         if (isCheck) {
-
           $("#num-" + id).removeAttr("disabled")
         } else {
           $("#num-" + id).attr("disabled", true)
