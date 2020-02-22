@@ -11,6 +11,7 @@
 
     for($i=0; $i<count($check_prod); $i++) {
         $dbcon->query("insert into purchase_list (id_pro, id_po, po_total) values ($check_prod[$i], $purchase_id, $numbe_prod[$i])");
-        
     }
+
+    Header("location:renderpdf.php?id_po=$purchase_id");
 ?>

@@ -62,7 +62,7 @@ include("connect.php");
 
 
                             <td colspan="2" style="text-align: right;">
-                                <a href="detail_order.php?id_order=<?= $order["id_po"] ?>" class="btn btn-primary btn-lg">ดาวน์โหลด<a>
+                                <a target="_blank" href="renderpdf.php?id_po=<?= $order["id_po"] ?>" class="btn btn-primary btn-lg">ดาวน์โหลด<a>
                             </td>
                         </tr>
                     <? endwhile; ?>
