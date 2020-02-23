@@ -46,7 +46,7 @@ include("admin_head.php")
                 <font size="3">ชื่อผู้สั่ง</font>
                 </div>
                 <div class="col">
-                    <?= $detail["name_cus"] ?>
+                <font size="3"><?= $detail["name_cus"] ?></font>
                 </div>
             </div>
             <div class="row">
@@ -54,7 +54,7 @@ include("admin_head.php")
                 <font size="3">ชื่อผู้รับ</font>
                 </div>
                 <div class="col">
-                    <?= $detail["name_delivery"] ?>
+                <font size="3"><?= $detail["name_delivery"] ?></font>
                 </div>
             </div>
             <div class="row">
@@ -62,7 +62,7 @@ include("admin_head.php")
                 <font size="3">หลักฐานการโอนเงิน</font>
                 </div>
                 <div class="col">
-                    <button onclick="check_slip('<?= $detail['slip'] ?>')">คลิกเพื่อดูหลักฐานการโอนเงิน</button>
+                    <button onclick="check_slip('<?= $detail['slip'] ?>')"><font size="2">คลิกเพื่อดูหลักฐานการโอนเงิน</font></button>
                 </div>
             </div>
             <div class="row">
@@ -70,7 +70,8 @@ include("admin_head.php")
                 <font size="3">ธนาคาร</font>
                 </div>
                 <div class="col">
-                    <?= $detail['bank'] ?>
+                  
+                   <font size="3">  <?= $detail['bank'] ?></font>
                 </div>
             </div>
             <div class="row">
@@ -78,7 +79,7 @@ include("admin_head.php")
                 <font size="3">สถานที่จัดส่ง</font>
                 </div>
                 <div class="col">
-                    <?= $detail["address"] ?>
+                <font size="3">  <?= $detail["address"] ?></font>
                 </div>
             </div>
             <div class="row">
@@ -86,7 +87,7 @@ include("admin_head.php")
                 <font size="3">วันที่สั่งสินค้า</font>
                 </div>
                 <div class="col">
-                    <?= $detail["createDate"] ?>
+                <font size="3">  <?= $detail["createDate"] ?></font>
                 </div>
             </div>
             <div class="row">
@@ -94,7 +95,7 @@ include("admin_head.php")
                 <font size="3">รหัสไปรษณีย์</font>
                 </div>
                 <div class="col">
-                    <?= $detail["zip"] ?>
+                <font size="3"> <?= $detail["zip"] ?></font>
                 </div>
             </div>
             <div class="row mb-3">
@@ -102,17 +103,17 @@ include("admin_head.php")
                 <font size="3">สถานะ</font>
                 </div>
                 <div class="col" id="o_status">
-                    <?= $detail["o_status"];
+                <font size="3"> <?= $detail["o_status"];
                     $g_status = $detail["o_status"]; ?>
                 </div>
             </div>
             <table class="table table-striped table-bordered">
                 <thead>
                     <tr>
-                        <th>ชื่อสินค้า</th>
-                        <th>ราคา</th>
-                        <th>จำนวน</th>
-                        <th>รวม</th>
+                        <th><font size="2">ชื่อสินค้า</font></th>
+                        <th><font size="2">ราคา</font></th>
+                        <th><font size="2">จำนวน</font></th>
+                        <th><font size="2">รวม</font></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -121,16 +122,16 @@ include("admin_head.php")
                     $sum = 0;
                     while ($order = mysqli_fetch_array($result)) : ?>
                         <tr>
-                            <td><?= $order["name_pro"] ?></td>
-                            <td><?= $order["price"] ?></td>
-                            <td><?= $order["order_total"] ?></td>
-                            <td><?= $order["order_total"] * $order["price"] ?></td>
+                            <td><font size="2"><?= $order ["name_pro"] ?></font></td>
+                            <td><font size="2"><?= $order["price"] ?></font></td>
+                            <td><font size="2"><?= $order["order_total"] ?></font></td>
+                            <td><font size="2"><?= $order["order_total"] * $order["price"] ?></font></td>
                             <? $sum += $order["order_total"] * $order["price"] ?>
                         </tr>
                     <? endwhile; ?>
                     <tr>
                         <td colspan="4" style="text-align: right;">
-                            ราคารวม <?= $sum ?> บาท
+                        <font size="3"> ราคารวม <?= $sum ?> บาท</font>
                         </td>
                     </tr>
                     <tr>
@@ -139,7 +140,7 @@ include("admin_head.php")
             </table>
             <div class="row mb-5">
                 <div class="col">
-                    รหัสไปรษณีย์
+                <font size="3"> รหัสไปรษณีย์</font>
                 </div>
                 <div class="col">
                     <input id="ems" oninput="check_ems(event)" class="form-control" placeholder="หมายเลขสิ่งของ 13 หลัก" />
@@ -147,14 +148,14 @@ include("admin_head.php")
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
 
-                <button onclick='confirm(<?= $_GET["id_order"]; ?>, "delivery")' id="confirm" name="confirm" type="submit" class="btn btn-success" disabled>ยืนยัน</button>
+                <button  onclick='confirm(<?= $_GET["id_order"]; ?>, "delivery")' id="confirm" name="confirm" type="submit" class="btn btn-success" disabled><font size="3">ยืนยัน</font></button>
                 <? if ($g_status != "delivery" && $g_status != "cancel")  : ?>
-                    <button onclick='cancel(<?= $_GET["id_order"]; ?>, "cancel")' class="btn btn-danger" type="submit">ไม่ยืนยัน</button>
+                    <button onclick='cancel(<?= $_GET["id_order"]; ?>, "cancel")' class="btn btn-danger" type="submit"><font size="3">ไม่ยืนยัน</font></button>
                 <? endif; ?>
             </div>
         </div>
     </section>
-
+<br>
     <script>
         var data = {
             ems: '',

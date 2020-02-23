@@ -133,7 +133,7 @@
                                                     <? endwhile; ?>
                                                     <tr>
                                                         <td colspan="8" style="text-align: right;">
-                                                            <h2 class="h5 text-black">ราคารวม <?= $sum ?></h2>
+                                                            <h2 class="h5 text-black">ราคารวม+ค่าจัดส่ง <?= $sum+50 ?></h2>
 
 
                                                         </td>
