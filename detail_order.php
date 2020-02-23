@@ -131,7 +131,7 @@ include("admin_head.php")
                     <? endwhile; ?>
                     <tr>
                         <td colspan="4" style="text-align: right;">
-                        <font size="3"> ราคารวม <?= $sum ?> บาท</font>
+                        <font size="3"> ราคารวม <?= $sum+50 ?> บาท</font>
                         </td>
                     </tr>
                     <tr>
