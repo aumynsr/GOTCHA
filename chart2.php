@@ -19,44 +19,43 @@ $con= mysqli_connect("localhost","root","12345678","gotcha") or die("Error: " . 
 mysqli_query($con, "SET NAMES 'utf8' ");
  
 $query = "
-SELECT SUM(total) AS totol, DATE_FORMAT(createDate, '%M') AS createDate
-FROM orders 
-GROUP BY DATE_FORMAT(	createDate, '%M%')
+SELECT `name_pro`,`total` FROM `product`
+
 ";
 $result = mysqli_query($con, $query);
 $resultchart = mysqli_query($con, $query);  
  
  
  //for chart
-$createDate = array();
-$totol = array();
- 
+$name_pro = array();
+$total = array();
+
 while($rs = mysqli_fetch_array($resultchart)){ 
-  $createDate[] = "\"".$rs['createDate']."\""; 
-  $totol[] = "\"".$rs['totol']."\""; 
+  $name_pro[] = "\"".$rs['name_pro']."\""; 
+  $total[] = "\"".$rs['total']."\""; 
 }
-$createDate = implode(",", $createDate); 
-$totol = implode(",", $totol);
+$name_pro[] = implode(",", $name_pro); 
+$total[] = implode(",", $total);
 
 
- 
 ?>
  
 <h3 align="center">รายงานในแบบกราฟ</h3>
 <table width="200" border="1" cellpadding="0"  cellspacing="0" align="center">
   <thead>
   <tr>
-    <th width="10%">เดือน</th>
-    <th width="10%">ยอดขาย</th>
+    <th width="10%">สินค้า</th>
+    <th width="10%">จำนวนคงเหลือ</th>
   </tr>
   </thead>
   
   <?php while($row = mysqli_fetch_array($result)) { ?>
     <tr>
-      <td align="center"><?php echo $row['createDate'];?></td>
-      <td align="right"><?php echo number_format($row['totol'],2);?></td> 
+      <td align="center"><?php echo $row['name_pro'];?></td>
+      <td align="right"><?php echo number_format($row['total']);?></td> 
     </tr>
     <?php } ?>
+
  
 </table>
 <?php mysqli_close($con);?>
@@ -73,13 +72,10 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [<?php echo $createDate;?>
-    
-        ],
+        labels: [<?php echo $row['name_pro']; ?>],
         datasets: [{
-            label: 'รายงานภาพรวม แยกตามเดือน (บาท)',
-            data: [<?php echo $totol;?>
-            ],
+            label: 'รายงานยอดคงเหลือ (ชิ้น)',
+            data: [<?php echo $row['total']; ?>],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -114,7 +110,6 @@ var myChart = new Chart(ctx, {
 
 
 
-</p>
- 
+</p> 
   <!--devbanban.com-->
 </html>

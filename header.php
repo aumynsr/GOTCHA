@@ -127,7 +127,7 @@
       console.log('run')
       jQuery.get('http://localhost/GOTCHA/getCountCart.php?id_cus='+<?=$_SESSION["id_cus"]?>).then(function(res){
         
-        if(res > 9){
+        if(res > 9){ 
           jQuery('#counter').html('9+');
         }else{
           jQuery('#counter').html(res);
