@@ -3,6 +3,34 @@
 <?
 include("admin_head.php")
 ?>
+<?php 
+
+
+
+?>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages'😞'corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['name_pro', 'total'],
+          <?php echo $report1; ?>
+        ]);
+
+        var options = {
+          title: 'customer total'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
 
 <body>
 
@@ -67,9 +95,9 @@ $totol = implode(",", $totol);
  
  <!--devbanban.com-->
  
-<canvas id="myChart" width="800px" height="300px"></canvas>
+<canvas id="myChart2" width="800px" height="300px"></canvas>
 <script>
-var ctx = document.getElementById("myChart").getContext('2d');
+var ctx = document.getElementById("myChart2").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {

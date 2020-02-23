@@ -61,10 +61,7 @@
 						<a class="txt2" href="../register/register.php">
 							Create your Account
 						</a>
-						<div class="text-center p-t-136">
-						<a class="txt2" href="../admin_area/login.php">
-							for admin
-						</a>
+						
 					</div>
 				</form>
 			</div>

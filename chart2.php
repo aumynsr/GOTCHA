@@ -49,7 +49,8 @@ $total[] = implode(",", $total);
   </tr>
   </thead>
   
-  <?php while($row = mysqli_fetch_array($result)) { ?>
+  <?php while($row = mysqli_fetch_array($result)) 
+{ ?>
     <tr>
       <td align="center"><?php echo $row['name_pro'];?></td>
       <td align="right"><?php echo number_format($row['total']);?></td> 
@@ -58,10 +59,11 @@ $total[] = implode(",", $total);
 
  
 </table>
-<?php mysqli_close($con);?>
+
  
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
 <hr>
+
 <p align="center">
  
  <!--devbanban.com-->
@@ -72,10 +74,10 @@ var ctx = document.getElementById("myChart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: [<?php echo $row['name_pro']; ?>],
+        labels: [<?php while ($row = mysqli_fetch_array($result)) { echo $row['name_pro']; }?>],
         datasets: [{
             label: 'รายงานยอดคงเหลือ (ชิ้น)',
-            data: [<?php echo $row['total']; ?>],
+            data: [<?php echo $total; ?>],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

@@ -1,5 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+
+$get_rp1 = "SELECT name_pro, total FROM product ";
+$rp1=mysqli_query($con,$get_rp1);
+for($i=0; $i<mysqli_num_rows($rp1); $i++)
+{
+	$rowrp1= mysqli_fetch_assoc($rp1);
+	$name_pro	= $rowrp1['name_pro'];
+	$total = $rowrp1['total'];
+
+$report1.="['Balance: $name_pro',$total],";
+}
+
+?>
 <head>
   <?php 
     include ("connect.php");
