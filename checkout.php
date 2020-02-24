@@ -76,7 +76,7 @@ if(isset($_SESSION["id_cus"])){
                             </td>
 
                             <td class="product-id">
-                                <input type="text" value="<?=$product["cart_total"]?>" id="cart_total"/>
+                                <input oninput="checkoutupdate(<?=$product['id_pro'] ?>, <?=$_SESSION['id_cus'] ?>)" type="number" min="1" max="<?=$product["total"]?>" value="<?=$product["cart_total"]?>" id="cart_total"/>
                             </td>
 
                             <td class="product-id">
@@ -246,6 +246,16 @@ if(isset($_SESSION["id_cus"])){
             console.log(id_pro, id_cus)
             //console.log($)
             jQuery.post('http://localhost/GOTCHA/checkoutdelete.php', {
+                id_pro:id_pro,
+                id_cus:id_cus
+            }, function(data, status){
+                console.log(data, status)
+                window.location.reload();
+            })
+        }
+
+        function checkoutupdate(id_pro, id_cus){
+            jQuery.post('http://localhost/GOTCHA/checkoutupdate.php', {
                 id_pro:id_pro,
                 id_cus:id_cus
             }, function(data, status){

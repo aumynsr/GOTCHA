@@ -298,7 +298,15 @@ if (isset($_SESSION["id_cus"])) {
         }
 
         $.get("http://localhost/gotcha/cart.php?id_pro=" + id_pro + "&id_cus=" + id_cus, function(data, status) {
-          console.log(data)
+          
+          if(data == 'fail'){
+              Swal.fire({
+              title: 'สินค้าหมด',
+              icon: "error"
+            })
+            return;
+          }
+
           Swal.fire({
             title: 'เพิ่มสินค้าลงตะกร้าสำเร็จ',
             icon: 'success',
