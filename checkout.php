@@ -76,8 +76,7 @@ if(isset($_SESSION["id_cus"])){
                             </td>
 
                             <td class="product-id">
-                                <?=$product["cart_total"]?>
-                                <input type="hidden" value="<?=$product["cart_total"]?>" id="cart_total"/>
+                                <input type="text" value="<?=$product["cart_total"]?>" id="cart_total"/>
                             </td>
 
                             <td class="product-id">

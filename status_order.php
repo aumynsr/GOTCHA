@@ -89,8 +89,8 @@ include("connect.php");
                             </td>
 
                             <td class="product-id">
-                                <?=$product["order_total"]?>
-                            
+                                <?=$product["order_total"]     ?>
+                               
                             </td>
 
                             <td class="product-id">
@@ -99,7 +99,7 @@ include("connect.php");
                             </td>
 
                             <td class="product-id">
-                                <h2 class="h5 text-black"><?=$product["price"]*$product["order_total"]?></h2>
+                                <h2 class="h5 text-black"><?=$product["price"]*$product["order_total"]+50?></h2>
                                       
                             </td>
 

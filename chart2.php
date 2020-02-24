@@ -44,8 +44,8 @@ $total[] = implode(",", $total);
 <table width="200" border="1" cellpadding="0"  cellspacing="0" align="center">
   <thead>
   <tr>
-    <th width="10%">สินค้า</th>
-    <th width="10%">จำนวนคงเหลือ</th>
+    <th width="20%">สินค้า</th>
+    <th width="20%">จำนวนคงเหลือ</th>
   </tr>
   </thead>
   
