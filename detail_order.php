@@ -104,7 +104,7 @@ include("admin_head.php")
                 </div>
                 <div class="col" id="o_status">
                 <font size="3"> <?= $detail["o_status"];
-                    $g_status = $detail["o_status"]; ?>
+                    $g_status = $detail["o_status"]; ?></font>
                 </div>
             </div>
             <table class="table table-striped table-bordered">
